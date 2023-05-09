@@ -1,0 +1,128 @@
+/*
+* Artist Support Sessions
+*
+*/
+		
+.heads-up
+	position fixed
+	top 0
+	left 0
+	bottom 0
+	height 100vh
+	width 100%
+	z-index 101
+	pointer-events none
+	visibility hidden
+	overflow hidden
+	transition(all 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+	&.open
+		pointer-events auto
+		visibility visible
+		transition(all 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+		.heads-up__wrapper .overlay
+			opacity(1)
+			transition(opacity 0.3s)
+		.heads-up__wrapper .content-wrapper
+			opacity(1)
+			transform(translateY(0px))
+			transition(opacity 0.3s, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+			
+	.heads-up__wrapper
+		position relative
+		width 100%
+		height 100vh
+		padding 16px
+		overflow auto
+		background var(--yellow)
+		z-index 101
+		
+		.overlay
+			position absolute
+			top 0
+			left 0
+			height 100%
+			width 100%
+			background rgba(0,0,0,0.85)
+			z-index 102
+			opacity(0)
+			transition(opacity 0.3s)
+			
+		.content-wrapper
+			position relative
+			z-index 103
+			padding 24px 16px
+			background var(--yellow)
+			opacity(0)
+			transform(translateY(50px))
+			transition(opacity 0.3s, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+			
+			.close-btn
+				position absolute
+				top 16px
+				right 16px
+				@media (min-width: $tablet)
+					top 20px
+					right 20px
+			h3
+				margin-bottom 24px
+			p
+				max-width 570px
+	
+	.cta-group
+		flex_box()
+		flex_wrap(wrap)
+		gap 16px
+		margin-top 40px
+		
+		a
+			font-size 14px
+			line-height 19px
+			padding 14px 24px
+			min-width 154px
+		
+		@media (max-width: 767px)
+			a
+				width 100%
+		
+	@media (min-width: 646px)
+		.heads-up__wrapper
+			flex_box()
+			justify_content(center)
+			
+	@media (min-width: $tablet)
+		.heads-up__wrapper
+			background transparent
+			align_items(center)
+			.content-wrapper
+				width 680px
+				padding 45px 0 120px 100px
+				background var(--yellow)
+				clip-path polygon(0px 0, 88% 0, 100% 70%, 10% 100%, 0 0)
+				.close-btn
+					right 99px
+				p
+					max-width 470px
+	
+	@media (min-width: $laptop)
+		.heads-up__wrapper
+			.content-wrapper
+				width 930px
+				padding 60px 0 120px 150px
+				.close-btn
+					right 121px
+				p
+					max-width 675px
+
+	@media (min-width: $large-desktop)
+		.heads-up__wrapper
+			.content-wrapper
+				width 1188px
+				padding 60px 0 125px 150px
+				.close-btn
+					right 157px
+				h3
+					font-size 76px
+					line-height 76px
+				p
+					font-size 24px
+					line-height 27px

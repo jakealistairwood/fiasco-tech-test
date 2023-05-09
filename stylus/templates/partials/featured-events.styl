@@ -1,0 +1,171 @@
+/*
+ * Featured events
+ */
+
+.featured-events
+	.events-list li
+		opacity(0)
+		transform(translateY(50px))
+		transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	&.in-view
+		.events-list li
+			opacity(1)
+			transform(translateY(0))
+			transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+			delay = 0s
+			for num in (1..10)
+				&:nth-child({num})
+					transition-delay delay
+				delay = delay + 0.1s
+ 
+.featured-events
+	padding-bottom 5vw
+	header
+		text-align center
+		margin-bottom 50px
+		.section-title
+			margin-bottom 0
+		.cta
+			font-size inherit
+			color var(--sage)
+			background 0
+			text-transform uppercase
+			padding 0
+			margin 0 5px
+			&.active
+				color var(--darkgreen)
+	.event-title
+		font-size 15px
+		line-height 1.4em
+		letter-spacing 0.02em
+		display block
+		margin 0.5em 0 0.2em 0
+		@media(min-width:$large-desktop)
+			font-size 21px
+			margin-top 1.5em
+	.event-date
+		font-size 19px
+		letter-spacing -0.04em
+		@media(min-width:$large-desktop)
+			font-size 24px
+	.events-list
+		max-width 270px
+		margin-left auto
+		margin-right auto
+		margin-bottom -20px
+		li
+			margin-bottom 20px
+			background-image none
+			padding-left 0
+			a
+				display block
+				text-decoration none
+			.event-type-box
+				width 100%
+				overflow hidden
+				a
+					display block
+					position relative
+					width 100%
+					height 0
+					padding-bottom 60%
+					img
+						position absolute
+						top 0
+						left 0
+						height 100%
+						width 100%
+						object-fit cover
+						object-position top
+				.inner-box
+					position relative
+					flex_box()
+					flex_direction(column)
+					justify_content(flex-end)
+					width 65%
+					max-width 200px
+					background var(--darkgreen)
+					z-index 1
+					h6
+						position relative
+						font-size 2rem
+						line-height 1
+						padding $margin*2 $margin*2 $margin
+						margin auto 0 0 0
+						z-index 2
+						span
+							display block
+							overflow-wrap break-word
+				+ a
+					display block
+					margin-top 1.5rem
+			&:nth-child(3n+1)
+				.event-type-box
+					background var(--yellow)
+					.inner-box
+						width 55%
+						transform(rotate(-14deg))
+						h6
+							color var(--yellow)
+							padding 15px 45px 15px 25px
+							transform(rotate(14deg))
+						&::after
+							content ""
+							display block
+							position absolute
+							top 0
+							right 0
+							background inherit
+							width 200%
+							height 200%
+			&:nth-child(3n+2)
+				.event-type-box
+					background var(--pink)
+					.inner-box
+						margin-left auto
+						clip-path polygon(0 0, 100% 0, 100% 100%, 27px 100%)
+						h6
+							color var(--pink)
+							text-align right
+							span
+								margin-left auto
+			&:nth-child(3n+3)
+				.event-type-box
+					background var(--mint)
+					.inner-box
+						clip-path polygon(0 0, 100% 0, 100% 100%, 27px 100%)
+						h6
+							color var(--mint)
+							text-align right
+							span
+								margin-left auto
+	@media (min-width: $laptop)
+		header
+			margin-bottom 60px
+		.events-list
+			max-width none
+			margin 0 -15px
+			flex_box()
+			align_items(flex-start)
+			li
+				margin 0 15px
+				flex-shrink 0
+				flex-basis calc(33.3333% - 30px)
+	@media (min-width: $large-desktop)
+		.events-list
+			margin 0 -25px
+			li
+				margin 0 25px
+				flex-basis calc(33.3333% - 50px)
+				.event-type-box
+					.inner-box
+						width 65% !important
+						max-width 250px
+						h6
+							font-size 50px
+							padding 45px 45px 30px 30px
+				&:nth-child(3n+1)
+					.event-type-box
+						.inner-box
+							h6
+								padding 45px 45px 30px 30px

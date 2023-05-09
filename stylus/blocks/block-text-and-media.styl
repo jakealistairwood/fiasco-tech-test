@@ -1,0 +1,73 @@
+/*
+* TEXT AND MEDIA BLOCK STYLING
+*
+*/
+
+.text-and-media
+	.contained div
+		opacity(0)
+		transform(translateY(50px))
+		transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	&.in-view
+		.contained div
+			opacity(1)
+			transform( translateY(0) )
+			transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+			delay = 0s
+			for num in (1..10)
+				&:nth-child({num})
+					transition-delay delay
+				delay = delay + 0.1s
+
+.text-and-media
+	.text-and-media__text
+		max-width 600px
+	.text-and-media__media
+		margin-top 30px
+		img
+			clip-path polygon(8% 0, 100% 0, 87% 100%, 0 79%)
+	&--flip
+		.text-and-media__media
+			order 1
+			img
+				clip-path polygon(0 0, 93% 0, 100% 79%, 11% 100%)
+		.text-and-media__text
+			order 2
+	@media (min-width: $tablet)
+		&:not(.text-only)
+			.contained
+				flex_box()
+				flex_wrap(nowrap)
+				flex_direction(row)
+				align_items(center)
+				justify_content(center)
+				.text-and-media__text,
+				.text-and-media__media
+					width 50%
+					margin-top 0
+				.text-and-media__text
+					padding 0 5vw 0 0
+		&--flip:not(.text-only)
+			.contained
+				.text-and-media__text
+					padding 0 0 0 5vw
+		&.text-only
+			.text-and-media__text
+				max-width 825px
+				margin 0 auto
+	@media (min-width: $large-desktop)
+		.text-and-media__media
+			margin-right calc(-50vw + 50%)
+		&--flip
+			.text-and-media__media
+				margin-right 0
+				margin-left calc(-50vw + 50%)
+
+.text-and-media--spacing
+	margin-top 10vw
+	margin-bottom 10vw
+
+.text-and-media__text
+	blockquote
+		margin 2em auto
+		

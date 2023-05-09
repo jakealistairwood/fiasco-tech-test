@@ -1,0 +1,96 @@
+// ========================================================
+// THEME VARIABLES & OPTIONS
+// ========================================================
+
+/* OPTIONS */
+fixednav = false;
+transparentnav = true;
+
+/* SCREEN VARIABLES */
+$large-mobile = 600px
+$tablet = 768px
+$laptop = 1024px
+$desktop = 1240px
+$large-desktop = 1600px
+
+$content-width = calc(100% - 50px)
+$tablet-content-width = calc(100% - 180px)
+$desktop-content-width = calc(100% - 240px)
+$large-desktop-content-width = 1388px
+
+/* Spacing */
+$margin = 15px
+$paddingX = 25px
+
+:root
+	
+	// COLOURS
+	--white #FFFFFF
+	--black #2D3232
+	--grey #D8D8D8
+	--light-grey #f2f2f2
+	--dark-grey #262626
+	
+
+	// PALETTE
+	--darkgreen #003333
+	--green #AEE2D0
+	--lightgreen #AEE2D0
+	--mint #D6F0E7
+	--teal #337F7D
+	--yellow #FFB12A
+	--pink #FFA5BF
+	--sand #F5EBE0
+	--blackgreen #001E1E
+	--sage #CCD6D6
+	
+
+	// COLOUR FUNCTIONS
+	--color-dark var(--black)
+	--color-light var(--white)
+	--color-primary var(--blue)
+	--color-secondary var(--teal)
+	--color-success #36ED9C
+	--color-error #FF3154
+	
+	--text-color var(--darkgreen)
+	--link-color var(--green)
+	--link-hover var(--yellow)
+
+	// PAGE
+	--background var(--white)
+	
+	// BUTTONS
+	--button-bg var(--darkgreen)
+	--button-text var(--black)
+	--button-padding .9em 1.6em 1em 1.6em
+	
+	// BUTTON AND FORM FIELD RADIUS
+	--button-radius 0
+	
+	// GRID
+	--content-width calc( 100% - 2rem )
+	--vpad 25px
+	--hpad 25px
+	--nav-height 80px
+
+	@media( min-width: $tablet )
+		--content-width 600px
+		--nav-height 100px
+
+	@media( min-width: $laptop )
+		--content-width 700px
+		--hpad 120px
+
+	@media( min-width: $desktop )
+		--content-width 940px
+		--nav-height 120px
+
+	@media( min-width: $large-desktop )
+		--content-width 1240px
+		
+
+
+
+
+

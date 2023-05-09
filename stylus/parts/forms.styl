@@ -1,0 +1,883 @@
+/*
+*
+* Forms and fields
+*
+*/
+
+
+
+.searchform
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	background var(--darkgreen)
+	color var(--sand)
+	padding var(--hpad)
+	z-index 11
+	visibility hidden
+	pointer-events none
+	transform( translateY(-100%) )
+	transition(transform 400ms ease-in-out, visibility 0.4s 1s ease-in-out)
+	input[type="text"]
+		font-family var(--headingFont)
+		text-transform uppercase
+		font-size 36px
+		border-color var(--sand)
+		color var(--sand)
+		letter-spacing 0
+		@media(min-width $tablet)
+			border-bottom 0
+			color var(--darkgreen)
+		@media(min-width $laptop)
+			font-size 72px
+			height 70px
+	
+	@media(max-width ($tablet - 1) )
+		::-webkit-input-placeholder
+			color: rgba(245, 235, 224, 0.5)
+		::-moz-placeholder
+			color: rgba(245, 235, 224, 0.5)
+		:-ms-input-placeholder
+		 	color: rgba(245, 235, 224, 0.5)
+		:-moz-placeholder
+			color: rgba(245, 235, 224, 0.5)
+	
+	@media(min-width $tablet)
+		position absolute
+		background var(--white)
+		color var(--darkgreen)
+		left calc( var(--hpad) * -1 )
+		right calc( var(--hpad) * -1 )
+		bottom auto
+		padding 80px var(--hpad) 40px var(--hpad)
+		border-bottom 2px solid var(--darkgreen)
+		z-index 2
+		::-webkit-input-placeholder
+			color: var(--sage)
+		::-moz-placeholder
+			color: var(--sage)
+		:-ms-input-placeholder
+		 	color: var(--sage)
+		:-moz-placeholder
+			color: var(--sage)
+
+body.searchform--open
+	.searchform
+		visibility visible
+		pointer-events auto
+		transform( translateY(0) )
+		transition(transform 400ms ease-in-out)
+
+		
+.searchform__button
+	@extends .button-outline
+	width 100%
+	margin-top 1em
+	line-height 1.5
+	&:after
+		content ''
+		display inline-block
+		width 1.6em
+		height 1.6em
+		background-image: url("data:image/svg+xml,%3Csvg width='23' height='22' viewBox='0 0 23 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.50021' cy='8.99997' r='7.99997' stroke='%23003333' stroke-width='2'/%3E%3Cpath d='M21.4999 21L14.7499 14.25' stroke='%23003333' stroke-width='2'/%3E%3C/svg%3E%0A");
+		background-size contain
+		background-repeat no-repeat
+		margin-left 0.5em
+		vertical-align bottom
+		// line-height 0
+	@media(min-width $tablet)
+		box-shadow none
+		width auto
+		margin-top 0
+		margin-left auto
+		padding-right 0
+		font-size 12px
+		&:after
+			width 30px
+			height 30px
+			margin-left 0.8em
+			margin-bottom -0.4em
+		&:hover
+			background transparent
+	@media(min-width $large-desktop)
+		font-size 14px
+
+.searchform__close
+	margin 0 0 0 auto
+	width 28px
+	height 28px
+	cursor pointer			
+	&:before,
+	&:after
+		content ''
+		display block
+		width 100%
+		height 2px
+		background-color var(--sand)
+		transform-origin 55% 50%
+	&:before
+		transform(rotate(-45deg))
+		margin-top 9px
+	&:after
+		transform(rotate(45deg))
+	@media(min-width $tablet)
+		position absolute
+		right var(--hpad)
+		&:before,
+		&:after
+			background-color var(--darkgreen)
+
+.searchform__title
+	margin-top var(--nav-height)
+	color inherit
+	font-weight 300
+	@media(min-width $tablet)
+		margin-top 0
+		margin-bottom 1.5em
+
+input[type="submit"].searchform__submit
+	width 100%
+	color inherit
+	box-shadow( inset 0px 0px 0px 2px var(--sand) )
+	margin-top 80px
+	&:hover
+		background var(--sand)
+		color var(--darkgreen) !important
+	@media(max-width ($tablet - 1) )
+		display none
+	@media(min-width $tablet)
+		margin-top 0px
+		display none
+
+.searchform__tooltip
+	color #809999
+	position absolute
+	right var(--hpad)
+	bottom 45px
+	font-size 16px
+	display none
+	@media(min-width $tablet)
+		display block
+	@media(min-width $desktop)
+		font-size 20px
+	&:after
+		content ''
+		display inline-block
+		width 1.3em
+		height 1em
+		margin-left 0.5em
+		background-image: url("data:image/svg+xml,%3Csvg width='23' height='19' viewBox='0 0 23 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.81836 11.9155H21.8184V1.91553H12.6517M1.81836 11.9155L6.81836 6.91553M1.81836 11.9155L6.81836 16.9155' stroke='%23809999' stroke-width='2' stroke-linecap='square' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+		background-size contain
+		background-repeat no-repeat
+		vertical-align bottom
+
+
+
+
+
+
+.filters
+	width 100%
+	padding 30px 0 40px 0
+	@media(min-width $tablet)
+		flex_box()
+		flex_direction(row)
+		align_items(center)
+		flex_wrap(nowrap)
+		padding 60px 0
+		.searchform__button,
+		.filters__button
+			flex-shrink 0
+	@media(min-width $desktop)
+		padding 80px 0
+
+.filters__dropdown
+	position relative
+	&.filters--open
+		.filters__options
+			flex_box()
+		.filters__trigger
+			background #fff
+			box-shadow( inset 0px 0px 0px 2px var(--darkgreen) )
+			color var(--darkgreen)
+			&:after
+				background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0.5H1L6 6.5L11 0.5Z' fill='%23003333'/%3E%3Cpath d='M1 0.5V0C0.805991 0 0.629495 0.11223 0.547205 0.287922C0.464915 0.463615 0.491688 0.67105 0.615889 0.820092L1 0.5ZM11 0.5L11.3841 0.820092C11.5083 0.67105 11.5351 0.463615 11.4528 0.287922C11.3705 0.11223 11.194 0 11 0V0.5ZM6 6.5L5.61589 6.82009C5.71089 6.93409 5.85161 7 6 7C6.14839 7 6.28911 6.93409 6.38411 6.82009L6 6.5ZM1 1H11V0H1V1ZM10.6159 0.179908L5.61589 6.17991L6.38411 6.82009L11.3841 0.820092L10.6159 0.179908ZM6.38411 6.17991L1.38411 0.179908L0.615889 0.820092L5.61589 6.82009L6.38411 6.17991Z' fill='%23003333'/%3E%3C/svg%3E%0A");
+				transform( rotate(180deg) )
+				transition(transform 0.2s ease-in-out)
+			@media(min-width $tablet)
+				box-shadow(none)
+	@media(min-width $tablet)
+		flex_box()
+		flex_direction(row)
+		flex_wrap(nowrap)
+		align_items(center)
+		overflow hidden
+
+.filters__options
+	display none
+	flex_direction(column)
+	align_items(center)
+	justify_content(flex-start)
+	position absolute
+	top 100%
+	left 0
+	right 0
+	@media (min-width: $tablet)
+		position static
+		flex_box()
+		flex_direction(row)
+		flex_wrap(wrap)
+		overflow hidden
+		gap 8px 0
+
+
+.filters__trigger
+	display block
+	width 100%
+	font-family var(--headingFont)
+	font-size 14px
+	line-height 20px
+	text-align center
+	padding var(--button-padding)
+	text-transform uppercase
+	background var(--darkgreen)
+	color var(--sand)
+	transition(all 0.2s ease)
+	&:after
+		content ''
+		display inline-block
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0.5H1L6 6.5L11 0.5Z' fill='%23FCF9F0'/%3E%3Cpath d='M1 0.5V0C0.805991 0 0.629495 0.11223 0.547205 0.287922C0.464915 0.463615 0.491688 0.67105 0.615889 0.820092L1 0.5ZM11 0.5L11.3841 0.820092C11.5083 0.67105 11.5351 0.463615 11.4528 0.287922C11.3705 0.11223 11.194 0 11 0V0.5ZM6 6.5L5.61589 6.82009C5.71089 6.93409 5.85161 7 6 7C6.14839 7 6.28911 6.93409 6.38411 6.82009L6 6.5ZM1 1H11V0H1V1ZM10.6159 0.179908L5.61589 6.17991L6.38411 6.82009L11.3841 0.820092L10.6159 0.179908ZM6.38411 6.17991L1.38411 0.179908L0.615889 0.820092L5.61589 6.82009L6.38411 6.17991Z' fill='%23FCF9F0'/%3E%3C/svg%3E%0A");
+		background-repeat no-repeat
+		background-size contain
+		width 10px
+		height 6px
+		margin 4px 0 3px 0.5em
+		transform(rotate(0))
+		transition(transform 0.2s ease-in-out)
+	&:hover,
+	&:focus
+		color var(--sand)
+	@media(min-width $tablet)
+		display none
+		background transparent
+		padding 0
+		margin-right 1em
+		color var(--darkgreen)
+		pointer-events none
+		width auto
+		font-size 12px
+		&:after
+			display none
+
+.filters__label
+	font-family var(--headingFont)
+	display none
+	background transparent
+	margin-right 1em
+	color var(--darkgreen)
+	pointer-events none
+	width auto
+	font-size 12px
+	padding var(--button-padding)
+	padding-left 0
+	padding-right 0
+	text-transform uppercase
+	@media(min-width $tablet)
+		display inline-block
+	@media(min-width $large-desktop)
+		font-size 14px
+
+
+.filters__button
+	display inline-block
+	width 100%
+	font-family var(--headingFont)
+	color var(--darkgreen)
+	font-size 14px
+	line-height 20px
+	text-align center
+	padding 1em 1.6em
+	margin 0 0.4em
+	background var(--sage)
+	text-transform uppercase
+	transition(all 0.2s ease)
+	&:link,
+	&:visited
+		color var(--darkgreen)
+	&:hover
+		background var(--darkgreen)
+		color rgba(245, 235, 224, 1)
+		transition(all 0.2s ease)
+	
+	&--active
+		background var(--darkgreen)
+		color var(--sand) !important
+	@media (min-width: $tablet)
+		width auto
+		padding 0.8em 1.6em
+		border 2px solid var(--darkgreen)
+		background transparent
+		font-size 12px
+		&--active
+			background var(--darkgreen)
+			&:hover
+				color var(--darkgreen) !important
+		&:hover
+			background var(--sage)
+			color var(--darkgreen)
+			border-color transparent
+	@media(min-width $large-desktop)
+		font-size 14px
+		
+
+.filters__title
+	text-transform uppercase
+	font-family var(--headingFont)
+	margin-right 1.5em
+
+.filters__clear
+	margin-top 1em
+	a
+		width 100%
+	@media(min-width $tablet)
+		display none
+
+.filters--search
+	// HIDE FILTERS WHEN SHOWING SEARCH RESULTS
+	@media(min-width $desktop)
+		padding-bottom 120px
+	// @media(max-width ($tablet - 1) )
+	// 	.searchform
+	// 		display none
+
+// .filters--tax
+// 	// HIDE SEARCH FORM WHEN SHOWING TAXONOMY RESULTS
+// 	.searchform__button
+// 		@media(max-width ($tablet - 1) )
+// 			display none
+
+
+
+
+
+
+.grecaptcha-badge
+	display none !important
+
+
+.custom-select-wrapper
+	position: relative;
+	user-select: none;
+	width: 100%;
+	max-width 420px
+
+.custom-select
+	position: relative
+	display: flex
+	flex-direction: column
+	&.open
+		.custom-options
+			opacity: 1;
+			visibility: visible;
+			pointer-events: all;
+		.custom-select__trigger
+			border-radius 8px 8px 0 0
+
+.custom-select__trigger
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: space-between
+	// font-size: 20px
+	color: #55575B
+	height: auto
+	line-height: 60px
+	background: #ffffff
+	cursor: pointer
+	border-radius(8px)
+	padding 0 1rem
+	.arrow
+		transform(rotate(-180deg))
+	@media(min-width:1024px)
+		padding 0 1.4rem
+
+
+.custom-options
+	position: absolute;
+	display: block;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #fff;
+	transition: all 0.5s;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 2;
+	padding-bottom 1em
+	border-radius 0 0 8px 8px
+
+
+.custom-option
+	position relative
+	display block
+	padding 0 1rem
+	font-size 1.2em
+	font-weight 600
+	line-height 60px
+	cursor pointer
+	color var(--green)
+	transition all 0.5s
+	&:before
+		content '- '
+		display inline
+	@media(min-width:1024px)
+		font-size 1.3em
+		padding 0.5rem 1.4rem
+
+.custom-option:hover
+	cursor pointer
+	background-color #CCDFDE 
+
+.custom-option.selected
+	background-color #99BFBE
+
+
+.arrow {
+	 position: relative;
+	 height: 15px;
+	 width: 15px;
+}
+ .arrow::before, .arrow::after {
+	 content: "";
+	 position: absolute;
+	 bottom: 0px;
+	 width: 0.15rem;
+	 height: 100%;
+	 transition: all 0.5s;
+}
+ .arrow::before {
+	 left: -5px;
+	 transform: rotate(45deg);
+	 background-color: #394a6d;
+}
+ .arrow::after {
+	 left: 5px;
+	 transform: rotate(-45deg);
+	 background-color: #394a6d;
+}
+ .open .arrow::before {
+	 left: -5px;
+	 transform: rotate(-45deg);
+}
+ .open .arrow::after {
+	 left: 5px;
+	 transform: rotate(45deg);
+}
+
+
+
+
+label,
+.label
+	font-family var(--textFont)
+	text-transform none
+	font-weight 400
+	color inherit
+
+.wpforms-container input,
+input
+	&.show
+		display inline-block !important
+	&[type='button']
+		width 100%
+		max-width 300px
+		appearance(none)
+	&[type='submit']
+		width auto
+		min-width 120px
+		appearance(none)
+	&[type='text'],
+	&[type='email'],
+	&[type='search'],
+	&[type='number'],
+	&[type='tel'],
+	&[type='password']
+		appearance(none)
+		border-radius(0)
+		border none
+		border-bottom 2px solid var(--text-color)
+		text-align left
+		width 100%
+		background transparent
+		outline none
+		height 50px
+		font-weight 400
+		font-family var(--textFont)
+		line-height 50px
+		padding 0
+		margin 0
+		color var(--text-color)
+		letter-spacing -0.04em
+		transition(all 0.25s)
+		box-shadow(none)
+	&[type='checkbox'],
+	&[type='radio']
+		appearance(none)
+		width 1.5em
+		height 1.5em
+		display inline-block !important
+		margin-left 0
+		background-color transparent
+		border 1px solid var(--darkgreen)
+		box-shadow(none)
+		outline none
+		margin-right 0.5em
+		vertical-align middle
+		position relative
+		cursor pointer
+		@media(min-width:$desktop)
+			width 2em
+			height 2em
+			margin-right 1em
+		&:checked
+			border-color var(--darkgreen)
+			&:after
+				display block
+				width calc(100% - 2px)
+				height calc(100% - 2px)
+				content ""
+				background-color var(--darkgreen)
+				background-size(contain)
+				background-position center center
+				border-radius(100%)
+				vertical-align middle
+				position absolute
+				top 1px
+				left 1px
+			~.sf-label-checkbox
+				color var(--text-color)
+	&[type='checkbox']
+		&:checked
+			&:after
+				background-image url('./img/check-mark.svg')
+				background-color transparent
+	&[type='radio']
+		border-radius(100%)
+	&:focus
+		border-color var(--dark-grey)
+		transition(all 0.25s)
+	&.not-empty
+		border-color var(--green)
+		transition(all 0.25s)
+	&.empty
+		border-color $red
+		transition(all 0.25s)
+
+textarea
+	appearance(none)
+	border 2px solid var(--darkgreen)
+	text-align left
+	width 100%
+	background transparent
+	outline none
+	color var(--darkgreen)
+	height 240px
+	font-weight 400
+	font-family var(--textFont)
+	line-height 1.25em
+	padding 20px 20px
+	margin 0
+	border-radius(0)
+	&:focus
+		border-color var(--dark-grey)
+		transition(all 0.25s)
+	&.not-empty
+		border-color var(--green)
+		transition(all 0.25s)
+	&.empty
+		border-color $red
+		transition(all 0.25s)
+
+select
+	display inline-block
+	font-family var(--textFont)
+	appearance(none)
+	border 1px solid var(--light-grey)
+	width 100%
+	outline none
+	font-size inherit
+	color var(--dark-grey)
+	height auto
+	font-weight 400
+	font-family var(--textFont)
+	line-height 60px
+	padding 0 30px
+	margin 0
+	transition(all 0.25s)
+	border-radius(0)
+	box-shadow(none)
+	cursor pointer
+
+select::-ms-expand
+	display none
+
+
+
+
+
+*::-webkit-input-placeholder
+	color var(--darkgreen)
+	font-size inherit
+*input:-moz-placeholder
+	color var(--darkgreen) !important
+	font-size inherit
+input::-webkit-input-placeholder
+	color var(--darkgreen)
+	font-size inherit
+input:-moz-placeholder
+	color var(--darkgreen)
+	font-size inherit
+
+
+
+
+
+
+
+
+//
+//
+// WPFORMS
+//
+//	
+div.wpforms-container
+	
+	::-webkit-input-placeholder
+		color var(--text-color)
+		opacity(1)
+	:-moz-placeholder
+		color var(--text-color)
+		opacity(1)
+	::-moz-placeholder
+		color var(--text-color)
+		opacity(1)
+	:-ms-input-placeholder
+		color var(--text-color)
+		opacity(1)
+	::-ms-input-placeholder
+		color var(--text-color)
+		opacity(1)
+	
+	.wpforms-field-radio
+		li
+			margin-bottom 1rem
+	
+	.wpforms-submit
+		background var(--darkgreen) !important
+		color var(--pink)
+	
+	.wpforms-field-label
+		font-weight 100
+		letter-spacing -0.04em
+	
+	.wpforms-field-textarea
+		margin-top 2em
+		padding-top 2em
+		clear both
+	
+	.wpforms-submit-container
+		text-align right
+		margin-left auto
+	
+	textarea
+		margin-top 1em
+	
+	input
+		&[type='checkbox'],
+		&[type='radio']
+			border-width 2px
+			@media(min-width:$desktop)
+				width 1.5em
+				height 1.5em
+				margin-top 0
+				vertical-align middle
+				margin-right 1em
+		&[type='radio']
+			@media(min-width:$desktop)
+				&:checked
+					&:after
+						left 2px
+						top 2px
+						width calc(100% - 4px)
+						height calc(100% - 4px)
+	
+	.wpforms-required-label,
+	label.wpforms-error
+		color var(--darkgreen)
+	label.wpforms-error
+		padding-top 0.5em
+	.wpforms-field input.wpforms-error, 
+	.wpforms-field input.user-invalid, 
+	.wpforms-field select.wpforms-error, 
+	.wpforms-field select.user-invalid, 
+	.wpforms-field.wpforms-has-error .choices__inner
+		border-top 0
+		border-left 0
+		border-right 0
+		border-color var(--white)
+		border-width 2px
+	.wpforms-field textarea.wpforms-error, 
+	.wpforms-field textarea.user-invalid
+		border-color var(--white)
+		border-width 2px
+	
+	input[type="number"]::-webkit-outer-spin-button, 
+	input[type="number"]::-webkit-inner-spin-button
+		-webkit-appearance none
+		margin 0
+	input[type="number"]
+		-moz-appearance textfield
+
+	.wpforms-confirmation-container
+		position relative
+		padding 0 10px
+		max-width 340px
+		margin-left auto
+		&::after
+			content ""
+			display block
+			width calc(100% + 20px)
+			height 20px
+			margin 15px -10px 0
+			background-image url(img/annotations/underline.png)
+			background-repeat no-repeat
+			background-size contain
+			background-position center
+			z-index 1
+
+div.wpforms-container-full
+	.wpforms-form
+		.wpforms-field-label
+			display none !important
+			position absolute
+			top 50%
+			left 0
+			width 100%
+			color $peach
+			// text-transform uppercase
+			letter-spacing 0.05em
+			font-weight 400 !important
+			z-index 2
+			padding 0.8rem 1rem !important
+			transform-origin 0 0
+			pointer-events none
+			transform(translateY(-50%))
+		.wpforms-field-label-inline
+			font-weight 300 !important
+			font-size 12px !important
+			line-height 14px !important
+			vertical-align middle !important
+		.wpforms-submit-container
+			text-align right
+			width 150px
+			position absolute
+			bottom 0
+			right 0
+			margin-left auto
+		input[type=submit],
+		button[type=submit],
+		.wpforms-page-button
+			display inline-block
+			cursor pointer
+			outline none
+			color #fff !important
+			background-color var(--black) 
+			font-family var(--headingFont)
+			font-weight 500
+			text-align center
+			font-size 1rem !important
+			width auto
+			text-decoration none
+			padding 0.6rem 1.6rem !important
+			border none !important
+			letter-spacing 0.03em
+			transition: background-color 0.25s, color 0.25s !important
+			box-shadow(none)
+			border-radius(8px)
+			&:hover
+				background-color var(--green) !important
+				color var(--white) !important
+		.wpforms-submit-spinner
+			display none !important
+
+
+.wpforms-confirmation-container-full,
+div[submit-success]>.wpforms-confirmation-container-full:not(.wpforms-redirection-message)
+	background-color transparent !important
+	border none !important
+	color var(--white) !important
+
+
+// NEWSLETTER FORM
+.newsletter-overlay
+	.form-fields-row
+		margin-bottom 26px
+		.form-fields-column--right
+			margin-top 20px
+		@media(min-width:$tablet)
+			flex_box()
+			justify_content(space-between)
+			.form-fields-column
+				width calc(50% - 20px)
+				&--right
+					flex_box()
+					flex_direction(column)
+					justify_content(space-between)
+					margin-top 0
+		@media(min-width:$laptop)
+			.form-fields-column
+				width calc(50% - 50px)
+				
+	.form-field
+		input[type="text"],
+		input[type="email"]
+			font-size 1.8rem
+			background transparent
+			color var(--black)
+			border 0
+			padding 0
+			margin 0
+			border-bottom 2px solid var(--black)
+		input[type="submit"]
+			display inline-block
+			background var(--black)
+			color var(--pink)
+			border 0
+			border-radius 0
+		&.form-field-firstname input,
+		&.form-field-lastname input
+			margin-bottom 1rem
+		&.form-field-consent
+			label
+				cursor pointer
+			input
+				vertical-align baseline
+				border-width 2px
+				width 13px
+				height 13px
+				margin 0px 3px 0 0px
+				transform(translateY(2px))
+				@media(min-width:$desktop)
+					width 16px
+					height 16px
+					margin 0px 5px 0 0px
+					transform(translateY(3px))
+		&.form-field-submit
+			text-align right
+			margin-top 20px
+			@media(min-width:$tablet)
+				input
+					margin-top 40px

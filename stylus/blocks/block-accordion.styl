@@ -1,0 +1,55 @@
+/*
+* Accordions section
+*
+*/
+
+.text
+	max-width 1170px
+	margin 0 auto
+	padding 3rem 0
+
+.accordions
+	width calc(100% - 40px)
+	max-width 1170px
+	margin 4rem auto
+	.center
+		h2
+			text-align center
+	@media(min-width:768px)
+		width calc(100% - 60px)
+	@media(min-width:1024px)
+		width calc(100% - 80px)
+
+.accordion__tab
+	cursor pointer
+	padding 20px 40px 20px 0
+	position relative
+	font-weight 600
+	&:after
+		content '+'
+		position absolute
+		top 50%
+		right 20px
+		line-height 0
+		font-weight 500
+	h3
+		margin-top 0.2em
+
+.accordion__panel
+	border-bottom 1px solid $peach
+	// &:last-child
+	// 	border-bottom 0px solid $peach
+
+.accordion__content
+	display none
+	padding-right 5%
+	@media(min-width:1240px)
+		padding-right 450px
+	
+.accordion__panel--open
+	.accordion__tab
+		&:after
+			// transform rotate(45deg)
+			content '-'
+	.accordion__content
+		display block

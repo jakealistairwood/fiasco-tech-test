@@ -1,0 +1,128 @@
+/*
+* Archive resources
+*
+*/
+
+@import "partials/resources/hero"
+
+body.post-type-archive-resources,
+body.tax-resource-types
+	h1
+		text-align left !important
+	.subtitle
+		letter-spacing -0.04em
+	.site-main
+		padding-top 0
+		padding-bottom 130px
+
+
+body.post-type-archive-resources,
+body.tax-resource-types,
+body.search-results
+	.site-main
+		@media(min-width $tablet)
+			position relative
+			&:before
+				display block
+				position absolute
+				top 0
+				left 0
+				right 0
+				bottom 0
+				background rgba(45, 50, 50, 0.6)
+				width 100%
+				height 100%
+				z-index 2
+				opacity 0
+				pointer-events none
+				transition( opacity 0.8s ease )
+		.tiles
+			transition( filter 0.8s ease )
+			filter: blur(0px);
+			position relative
+			z-index 0
+		.tiles-wrapper
+			position relative
+			z-index 1
+	.hero
+		z-index 2
+		@media(min-width $tablet)
+			z-index 3
+	.filters
+		position relative
+		z-index 2
+	&.searchform--open
+		.nav
+			opacity(0)
+			display none
+		.site-main
+			&:before
+				opacity 1
+				pointer-events auto
+				transition( opacity 0.8s ease )
+			.tiles
+				@media(min-width $tablet)
+					transition( filter 0.8s ease )
+					filter: blur(9px);
+		
+
+body.search-results
+	h1
+		text-align left !important
+
+.search-results__details
+	width 100%
+	padding-top 35px
+	flex_box()
+	flex_direction(row)
+	flex_wrap(wrap)
+	justify_content(space-between)
+	align_items(center)
+	text-align left
+	@media(min-width $tablet)
+		padding-top 90px
+
+
+.search-results__subtitle
+	width 100%
+	display block
+	margin-bottom 0.5em
+
+.search-results__title
+	width 100%
+	display block
+	margin-bottom 1.5em
+	@media(min-width $tablet)
+		margin-bottom 0.8em
+
+.search-results__count
+	font-size 20px
+	color #809999
+	span
+		@media(min-width $tablet)
+			display none
+
+.search-results__clear
+	a
+		width 100%
+		box-shadow(none)
+		padding 0
+		text-transform none
+		font-family var(--textFont)
+		font-size var(--fs-b)
+		&:after
+			transition(transform 0.5s ease)
+			transform(scale(1))
+			content ''
+			display inline-block
+			height 0.8em
+			width 0.8em
+			background url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.99994 6.45172L1.54822 0L-0.000168737 1.54839L6.45155 8.00011L0 14.4517L1.54839 16L7.99994 9.54849L14.4514 16L15.9998 14.4516L9.54833 8.00011L16 1.54844L14.4516 5.36211e-05L7.99994 6.45172Z' fill='%23003333'/%3E%3C/svg%3E%0A") no-repeat center center transparent
+			background-size contain
+			margin-left 0.5em
+			margin-bottom 0.1em
+			vertical-align middle
+		&:hover
+			&:after
+				transition(transform 0.5s ease)
+				transform(scale(1.1))

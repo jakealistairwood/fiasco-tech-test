@@ -1,0 +1,126 @@
+/*
+ * Hero
+ */
+
+body.page-our-services
+	.hero
+		.column-left *
+		.column-right li
+			opacity(0)
+			transform(translateY(50px))
+			transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+		.column-right::before
+			transform-origin top right
+			transform(scale(0,0))
+			transition(transform 0.3s cubic-bezier(0.7, 0, 0.4, 1) )
+	&.loaded
+		.hero .column-left *,
+		.hero .column-right li
+			opacity(1)
+			transform(translateY(0))
+			transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+		.hero .column-left *
+			delay = 0s
+			for num in (1..10)
+				&:nth-child({num})
+					transition-delay delay
+				delay = delay + 0.1s
+		.hero .column-right li
+			delay = 0.5s
+			for num in (1..10)
+				&:nth-child({num})
+					transition-delay delay
+				delay = delay + 0.1s
+		.hero .column-right::before
+			transform(scale(1,1))
+			transition(transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1) )
+ 
+body.page-our-services
+	.hero
+		color var(--darkgreen)
+		background var(--green)
+		padding-top 102px
+		padding-bottom 0
+		overflow hidden
+		.contained
+			.columns
+				margin-bottom 50px
+				.column
+					flex-basis auto
+				.column-left
+					position relative
+					margin-bottom 50px
+					z-index 4
+				.column-right
+					flex_box()
+					justify_content(center)
+					align_items(center)
+					padding 70px 40px 70px 90px
+					min-height 45vw
+					width calc(100% + 25px)
+					margin-left auto
+					margin-right - $paddingX
+					position relative
+					&::before
+						content ""
+						display block
+						position absolute
+						top 0
+						right 0
+						height 100%
+						width 100%
+						background var(--darkgreen)
+						clip-path polygon(0 3%, 100% 0, 100% 90%, 13% 100%)
+					ul
+						margin-right auto
+						max-width 405px
+						@media(min-width: 1480px)
+							max-width 530px
+						li
+							color #fff
+							.h4
+								letter-spacing 0.02em
+								margin-bottom 0.6em
+					@media(min-width: $tablet)
+						margin-right "calc((-100vw + %s) / 2)" % $tablet-content-width
+		@media(min-width: $tablet)
+			padding-top 150px
+		@media(min-width: $laptop)
+			min-height 100vh
+			flex_box()
+			flex_direction(column)
+			justify_content(center)
+			.contained
+				.columns
+					padding 50px 0
+					margin-bottom 0
+					align_items(center)
+					flex_wrap(nowrap)
+					.column-left
+						padding-right 30px
+						margin-bottom 0
+					.column-right
+						width 80%
+						max-width 100%
+						padding 10vw 60px 10vw 15vw
+						ul
+							margin-left 0
+		@media(min-width: $desktop)
+			.contained
+				.columns
+					.column-right
+						ul li h4
+							font-size 1.5rem
+							line-height 1.6rem
+		@media(min-width: $large-desktop)
+			padding 180px 0 120px
+			max-height none
+			.contained
+				.columns
+					justify_content(space-between)
+					.column-left
+						max-width 560px
+					.column-right
+						ul li h4
+							font-size 2.25rem
+							line-height 2.875rem

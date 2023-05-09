@@ -1,0 +1,390 @@
+//
+// NAV
+//
+
+
+.nav
+	display block
+	width 100%
+	height auto
+	z-index 10
+	color var(--white)
+	padding 0
+	top 0
+	left 0
+
+	if fixednav
+		position fixed
+	else
+		if transparentnav
+			position absolute
+		else
+			position relative
+
+	@media(max-width: ($tablet - 1) )
+		.nav__mobile
+			opacity(0)
+			display none
+	@media(min-width:$tablet)
+		.site-logo--mobile
+			display none
+	@media(min-width:$laptop)
+		padding 0 3rem 0 3rem
+		bottom auto
+		transform( translateY(0px) )
+		transition: transform 0.3s ease, background-color 0.3s
+
+.nav__content
+	position relative
+	width calc(100% - 50px)
+	max-width $large-desktop-content-width
+	margin 0 auto
+	@media(min-width: $tablet )
+		width calc(100% - 100px)
+		flex_box()
+
+.nav--open
+	overflow hidden
+	.nav__close
+		color var(--white) !important
+		&:before
+			content 'Close'
+	.nav__icon
+		div
+			span
+				background-color var(--darkgreen)
+				transform(rotate(-45deg))
+			span:first-of-type
+				transform(rotate(45deg))
+			span:nth-child(2)
+				transform rotate(-45deg) translate(5px, -3px)
+			span:last-of-type
+				opacity(0)
+	@media(max-width:$tablet)
+		.nav
+			background-color var(--green)
+			bottom 0
+			transition(all 0.3s ease)
+			
+			.nav__mobile
+				display block
+				opacity(1)
+		&.nav--light
+			.nav__icon div span
+				background-color var(--darkgreen)
+			.site-logo
+				svg
+					path
+						fill var(--darkgreen)
+	
+		
+
+.nav--show
+	@media(min-width:768px)
+		.nav
+			background-color $cream
+			transform(translateY(0%))
+			transition: transform 0.3s ease, background-color 0.3s
+	&.nav--light
+		.site-logo
+			svg
+				path
+					fill var(--green)
+		.nav__menu
+			a:link,
+			a:visited
+				color var(--darkgreen)
+	.site-logo
+		margin 0
+	.nav__menu li a
+		padding 2rem 1.2rem 1.5rem 1.2rem
+		@media(min-width:1640px)
+			padding 2rem 1.8rem 1.5rem 1.8rem
+
+.nav--hide
+	@media(min-width:768px)
+		.nav
+			transform(translateY(-100%))
+			transition: transform 0.3s ease, background-color 0.3s
+
+.nav__overlay
+	position relative
+	color var(--white)
+
+.nav__mobile
+	color var(--darkgreen)
+	width 100%
+	height 100%
+	min-height 100vh
+	overflow auto
+	text-align left
+	margin 0 auto
+	padding 53px 2rem
+	position fixed
+	top 0
+	left 0
+	font-family var(--headingFont)
+	text-transform uppercase
+	
+	ul
+		list-style none
+		padding-left 0
+		padding-top 50px
+	li
+		margin 3.5rem 0
+		font-size 1.5rem
+		list-style none
+		background-image none
+		word-break break-word
+	a
+		width 100%
+	a:link,
+	a:visited
+		color inherit
+		text-decoration none
+	> li
+		font-weight 600
+	.current_page_item a
+		position relative
+		width 100%
+		display inline-block
+		&::after
+			content ""
+			display block
+			position absolute
+			width calc(100% + 20px)
+			max-width 500px
+			height 20px
+			bottom -1.1em
+			left -1em
+			background-image url('img/annotations/underline.png')
+			background-repeat no-repeat
+			background-size 100% auto
+			overflow visible
+			z-index 1
+	.sub-menu
+		li
+			font-weight 500
+			&:before
+				content '- '
+	&:before
+		content ''
+		position fixed
+		top 0
+		left 0
+		right 0
+		height 120px
+		background rgb(174,226,208)
+		background linear-gradient(180deg, rgba(174,226,208,1) 71%, rgba(174,226,208,0) 100%)
+		pointer-events none
+		z-index 2
+	@media(min-width:400px)
+		padding 53px
+		li
+			font-size 2rem
+	@media(min-width:768px)
+		display none
+
+.nav__menu
+	display none
+	color var(--green)
+	width 100%
+	text-align right
+	margin 0 auto
+	padding-top 50px
+	height 100px
+	flex_direction(row)
+	flex_wrap(nowrap)
+	justify_content(space-between)
+	.site-logo
+		margin 0 30px
+		flex-shrink 0
+	div
+		width 30%
+		ul
+			width 100%
+			flex_box()
+			flex_direction(row)
+			flex_wrap(nowrap)
+			justify_content(space-between)
+	ul
+		padding-left 0
+		margin 0
+	li
+		vertical-align top
+		margin 0 20px
+		padding 0 0.2em
+		list-style none
+		background-image none
+		a
+			display block
+			padding 0.6rem 0
+			text-decoration none
+			letter-spacing -0.04em
+		&.current-menu-item
+			background url('img/annotations/underline.svg') no-repeat center bottom transparent
+			background-size auto
+	a:link,
+	a:visited
+		color var(--darkgreen)
+	> li
+		font-weight 600
+	.menu-item-has-children
+		height 124px
+		overflow visible
+		&:hover
+			background #FDEADC
+			.sub-menu
+				opacity(1)
+				pointer-events auto
+				background #FDEADC
+			> a
+				color $peach
+				transition(all 0.3s ease)
+	.sub-menu
+		opacity(0)
+		pointer-events none
+		li
+			font-weight 500
+			display block
+			margin 0
+			text-align left
+			a
+				transition(all 0.3s ease)
+				padding 1rem 2rem
+				display block
+				&:before
+					content '- '
+		a:hover
+			background $peach
+	@media(min-width:$tablet)
+		flex_box()
+		li
+			display inline-block
+
+.nav__button
+	position fixed
+	top 10px
+	right 10px
+	@media(min-width:768px)
+		top 30px
+		right 40px
+
+.nav__close
+	color var(--darkgreen)
+	position absolute
+	top 10px
+	right 20px
+	margin-top 1rem
+	font-size 0.9rem
+	font-weight 600
+	&:before
+		content 'Menu'
+	@media(min-width:768px)
+		display none
+
+.nav__icon
+	background-color transparent
+	color var(--white)
+	padding 0
+	text-transform uppercase
+	position absolute
+	top 5px
+	right 5px
+	z-index 11
+	cursor pointer
+	width 28px
+	height 24px
+	transition(top 0.3s ease)
+	div
+		width 100%
+		height auto
+		display block
+		vertical-align middle
+		span
+			background-color var(--darkgreen)
+			display block
+			height 3px
+			margin-bottom 8px
+			-ms-transform-origin center center
+			-o-transform-origin center center
+			-webkit-transform-origin center center
+			-moz-transform-origin center center
+			transform-origin center center
+			transition(all 0.3s ease)
+		span:first-of-type
+			-ms-transform-origin 8px 6px
+			-o-transform-origin 8px 6px
+			-webkit-transform-origin 8px 6px
+			-moz-transform-origin 8px 6px
+			transform-origin 8px 6px
+		span:last-of-type
+			transition(all 0.1s ease)
+	b
+		opacity(1)
+		line-height 9px
+		text-align center
+		text-align justify
+		text-justify inter-word
+		letter-spacing 1px
+		transition(all 0.2s 0s ease)
+		font-size 9px
+		width 100%
+		display block
+		font-family inherit
+	@media(min-width:768px)
+		display none
+
+
+
+.site-logo
+	display block
+	top 0
+	left 0
+	width 98px
+	margin 25px 0 0 0
+	z-index 5
+	position relative
+	svg
+		width 100%
+		height auto
+	@media(min-width:$laptop)
+		width 100px
+	@media(min-width:$desktop)
+		width 187px
+
+.nav--light
+	.site-logo
+		svg
+			path
+				fill var(--white)
+	.nav__close
+		color var(--white)
+	.nav__menu
+		a:link,
+		a:visited
+			color var(--white)
+		.menu-item-has-children:hover > a
+			color $peach
+		.sub-menu
+			li
+				a:link,
+				a:visited
+					color var(--darkgreen)
+	.nav__icon div span
+		background-color var(--white)
+
+.menu-item-has-children
+	> a
+		&:after
+			content ' +'
+
+
+.single-events .menu-item.events,
+.single-resources .menu-item.resources,
+.single-services .menu-item.services,
+.post-type-archive-resources .menu-item.resources,
+.post-type-archive-services .menu-item.services,
+.post-type-archive-events .menu-item.events
+	background url('img/annotations/underline.svg') no-repeat center bottom transparent
+	background-size auto

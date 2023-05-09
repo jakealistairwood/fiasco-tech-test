@@ -1,0 +1,225 @@
+//========================================================
+
+// WYSIWYG
+// Global styles for dealing with all basic WYSIWYG content
+
+//========================================================
+
+
+// GLOBAL SINGLE PAGE CONTENT
+.wysiwyg
+	
+	text-align left
+	h1,h2,h3,h4,h5,p,blockquote,ul,ol
+		margin 0 auto 1em 0
+	
+	// SMALL OBJECTS ALIGN TO MIDDLE
+	&.wysiwyg--center
+		h1,h2,h3,h4,h5,p,blockquote,ul,ol
+			text-align center
+	&.wysiwyg--right
+		text-align right
+		h1,h2,h3,h4,h5,p,blockquote,ul,ol
+			margin 0 0 1em auto
+	
+	iframe
+		max-width 100%
+	
+	// HEADERS
+	> *
+		margin-top 0
+	
+	h1,h2,h3,h4,h5
+		letter-spacing -0.01em 
+	
+	h1,h2,h3
+		margin-top 0.5em
+		margin-bottom 0.5em
+		line-height 1em
+		
+	b,strong
+		color inherit
+		
+	// BLOCKQUOTE
+	// blockquote
+	// 	margin 60px auto
+	// 	// &:before
+	// 	// 	color inherit
+	// 	p
+	// 		text-align center
+	// 		padding 0 30px
+	// 		color inherit
+	// 		.last-word
+	// 			&:after
+	// 				display none
+					
+	// PARAGRAPHS & LINKS
+	p,ul,ol
+		a:not(.button)
+			// color $purple
+			border-bottom 2px solid var(--text-color)
+			transition: color 0.3s ease-in-out, border 0.3s ease-in-out
+			text-decoration none
+			opacity(1)
+			transition(opacity 0.5s ease)
+			&:hover
+				opacity(0.6)
+				transition(opacity 0.5s ease)
+		.last-word
+			position relative
+			&:after
+				display block
+				content ""
+				width 11px
+				height 11px
+				position absolute
+				right -15px
+				top 50%
+				transform(translateY(-50%))
+				background-color var(--text-color)
+				border-radius(50%)
+				margin-top 2px
+	p
+		// color #809999
+		&:last-of-type
+			margin-bottom 2em
+	
+	// TEXT EMPHASIS
+	// i,u,strong
+	// 	&:after
+	// 		display none
+	
+	ul,ol
+		color inherit
+		margin 2rem auto
+		li
+			letter-spacing -0.02em
+			margin-bottom 1rem
+			line-height 1.15em
+	
+	// LISTS
+	ul
+		text-align left
+		li
+			padding-left 3rem
+			background no-repeat top left
+			background-image url('img/burst.svg')
+			background-size 1em auto
+	
+	// IMAGES & CAPTIONS
+	img
+		&.aligncenter,
+		&.alignnone
+			margin-left auto
+			margin-right auto
+			width auto
+			height auto
+	.wp-caption,
+	.wp-caption.alignright,
+	.wp-caption.alignleft,
+	img
+		max-width 100%
+		width auto
+		height auto
+		margin 1.6em 0
+	.wp-caption img,
+	.wp-caption.alignright img,
+	.wp-caption.alignleft img
+		margin 0
+	.wp-caption
+		position relative
+		.wp-caption-text
+			// position absolute
+			z-index 1
+			bottom 0
+			left 0
+			width auto
+			max-width 80%
+			margin 0
+			color inherit
+			opacity(0.7)
+			font-size 0.8em
+			line-height 1.3em
+			font-family var(--headingFont)
+			// background-color var(--light-grey)
+			padding 6px 12px 8px 0px
+			vertical-align middle
+	
+	// IMAGE GALLERIES
+	.gallery
+		.gallery-item,
+		.gallery__item
+			position relative
+			margin 0 !important
+			img
+				border 3px solid #fff !important
+				margin 0
+			&:hover
+				.gallery-caption
+					bottom 3px
+					transition(all 0.3s ease)
+					opacity(1)
+		.gallery-caption
+			position absolute
+			bottom 0
+			left 3px
+			max-width 90%
+			background $med-grey
+			padding 0.2em 0.5em 0.4em 0.5em
+			line-height 1em
+			text-align left
+			font-size 15px
+			letter-spacing 0.02em
+			transition(all 0.3s ease)
+			opacity(0)
+		&.swiper-container-horizontal
+			.gallery__item
+				width 100%
+	
+	video
+		max-width 100%
+		width 100%
+		height auto
+	
+	> iframe,
+	.fluid-width-video-wrapper
+		margin 3rem 0
+	
+	// iframe
+	// 	width 100%
+	// 	max-width 100%
+	// 	height auto
+	
+	// FIRST CHILD
+	// *:first-child
+	// 	margin-top 0 !important
+
+
+//========================================================
+//
+// Tablet and larger
+//
+//========================================================
+
+@media (min-width: $laptop)
+	.wysiwyg-section
+		.wp-caption
+			.wp-caption-text
+				font-size 0.65em
+				line-height 1.3em
+		.wp-caption.alignright,
+		img.alignright,
+		.wp-caption.alignleft,
+		img.alignleft
+			display inline-block
+			float right
+			margin 40px 60px
+			margin-right -60px
+			word-wrap normal
+		.wp-caption.alignleft,
+		img.alignleft
+			margin-right 60px
+			margin-left -60px
+
+
+

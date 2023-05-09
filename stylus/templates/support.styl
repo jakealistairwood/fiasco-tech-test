@@ -1,0 +1,140 @@
+/*
+* Support
+*
+*/
+
+.support-us__btn.open-btn
+	display none
+	@media (min-width: $tablet)
+		display inline-block
+		background var(--green)
+		color var(--darkgreen)
+		position absolute
+		top 400px
+		top 60vh
+		left 100%
+		white-space nowrap
+		z-index 98
+		transform(rotate(90deg))
+		transform-origin bottom left
+		
+.home
+	.support-us__btn.open-btn
+		background var(--green)
+		color var(--darkgreen)
+
+.support-us
+	background var(--green)
+	color var(--darkgreen)
+	position fixed
+	top 0
+	left 0
+	bottom 0
+	height 100vh
+	width 100%
+	max-width 1090px
+	z-index 99
+	overflow visible
+	transition( transform 0.3s cubic-bezier(0.7, -0.1, 0.4, 1.1) )
+	transform(translateX(-100%))
+	&.support-us--open
+		visibility visible
+		pointer-events auto
+		transform(translateX(0%))
+		transition( transform 0.3s cubic-bezier(0.7, -0.1, 0.4, 1.1) )
+
+.close-btn
+	width 20px
+	height 20px
+	z-index 10
+	@media(min-width:$laptop)
+		width 30px
+		height 30px
+
+.support-us__wrapper
+	position relative
+	overflow auto
+	padding 50px
+	height 100vh
+	@media(min-width:$laptop)
+		padding 124px
+	.cta
+		background-color var(--darkgreen)
+		color var(--white)
+		
+	a.button
+		color var(--darkgreen)
+		border-bottom 5px solid var(--darkgreen)
+	.close-btn
+		position fixed
+		top 25px
+		right 25px
+		z-index 10
+		@media(min-width:$laptop)
+			top 55px
+			right 55px
+	.make-a-donation
+		position relative
+		display inline-block
+		margin-bottom 15px
+		margin-right 0
+		margin-left auto
+		&::after
+			content ""
+			display inline-block
+			position relative
+			bottom - $margin
+			margin-bottom $margin
+			left 0
+			width 100%
+			height 60px
+			background-image url(img/annotations/hero-underline.png)
+			background-size contain
+			background-repeat no-repeat
+	.how-it-helps
+		margin-top 30px
+		h3
+			margin-top 10rem
+			flex_box()
+			flex_direction(column)
+			justify_content(center)
+			text-align center
+			position relative
+			&::after
+				content ""
+				display block
+				width 80%
+				height 10px
+				margin 15px auto 60px
+				background-image url(img/annotations/underline.png)
+				background-repeat no-repeat
+				background-size contain
+				background-position center
+				z-index 1
+	.bottom-message
+		text-align center
+		margin-top 60px
+		.cta
+			margin-top 15px
+	@media (min-width: $tablet)
+		.contained
+			width 100%
+			.columns
+				flex_direction(row)
+				align_items(center)
+				.column
+					flex 1
+					h3
+						font-size 76px
+						line-height 1
+						margin-bottom 60px
+					&:first-child
+						margin-bottom 0
+					&:last-child
+						text-align right
+	.tiles
+		justify_content(space-between)
+		.tile
+			width calc(50% - 1.5rem)
+			@media (max-width: 767px)
+				width 100%

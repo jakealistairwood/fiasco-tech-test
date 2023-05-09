@@ -1,0 +1,113 @@
+@import "partials/home/ctas.styl"
+@import "partials/home/hero.styl"
+@import "partials/home/tb-intro.styl"
+@import "partials/home/instagram-feed.styl"
+@import "partials/featured-events.styl"
+
+body.home
+	.featured-events
+		padding-bottom 20px
+	.featured-events,
+	.quick-links
+		margin 60px auto
+	.instagram-feed
+		padding 60px 0
+	@media (min-width: $desktop)
+		.featured-events
+			padding-bottom 0
+		.featured-events,
+		.quick-links
+			margin 150px auto
+		.instagram-feed
+			padding 150px 0
+		
+// .scroll-down
+// 	display block
+// 	width 25px
+// 	height 30px
+// 	margin-left auto
+// 	background url('img/down-arrow.svg') no-repeat center center transparent
+// 	background-size contain
+// 	@media(min-width:$tablet)
+// 		width 56px
+// 		height 67px
+// 		margin 60px 0 0 auto
+
+// .button--overlay
+// 	position absolute
+// 	top 0
+// 	left 50%
+// 	z-index 0
+// 	padding-top 1rem
+// 	padding-bottom 1rem
+// 	transform( translate(-50%,0) )
+
+// section.overlay
+// 	position fixed
+// 	top 0
+// 	left 0
+// 	right 0
+// 	bottom 0
+// 	height 100%
+// 	width 100%
+// 	flex_box()
+// 	flex_direction(column)
+// 	align_items(center)
+// 	justify_content(center)
+// 	pointer-events none
+
+// .overlay__content
+// 	background $red
+// 	flex_box()
+// 	flex_direction(column)
+// 	align_items(center)
+// 	justify_content(center)
+// 	height 70vh
+// 	z-index 11
+// 	padding 4rem
+// 	width 100%
+// 	text-align center
+// 	// transform( translateY(-150%) )
+// 	// animation( bounceIn 0.5s reverse )
+// 	h4
+// 		margin-top auto
+// 	h4,p
+// 		max-width 648px
+// 	p
+// 		&:last-child
+// 			margin-top auto
+// 			margin-bottom 0
+// 		a
+// 			text-decoration none
+	
+// .overlay__cover
+// 	position fixed
+// 	top 0
+// 	left 0
+// 	right 0
+// 	bottom 0
+// 	height 100%
+// 	width 100%
+// 	background rgba(0,0,0,0.5)
+// 	z-index 10
+// 	opacity(0)
+// 	visibility hidden
+// 	pointer-events none
+// 	transition(opacity 0.3s ease)
+
+// body.show--overlay
+// 	overflow hidden
+// 	section.overlay
+// 		pointer-events auto
+// 	.overlay__cover
+// 		opacity(1)
+// 		visibility visible
+// 		pointer-events auto
+// 		transition(opacity 0.3s ease)
+// 	.overlay__content
+// 		// transform( translateY(0%) )
+// 		animation( bounceIn 0.3s forwards )
+
+// body.close--overlay
+// 	.overlay__content
+// 		animation( bounceOut 0.3s forwards )

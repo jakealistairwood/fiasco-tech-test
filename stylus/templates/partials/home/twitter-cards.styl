@@ -1,0 +1,160 @@
+/*
+ * Twitter cards
+ */
+ 
+.twitter-cards
+	background var(--mint)
+	overflow hidden
+	header
+		text-align center
+		margin-bottom 50px
+		.section-title
+			margin-bottom 0
+		.cta
+			font-size inherit
+			color #809999
+			background 0
+			text-transform uppercase
+			padding 0
+	.section-title
+		text-align center
+		margin-bottom 0
+	
+	#ctf
+		padding 75px 25px
+		overflow visible
+		.ctf-corner-logo,
+		.ctf-screename-sep
+			display none
+		.ctf-author-avatar
+		.ctf-author-box,
+		.ctf-tweet-actions,
+		.ctf-tweet-content,
+		.ctf-author-name, 
+		.ctf-author-screenname, 
+		.ctf-tweet-meta, 
+		.ctf-verified
+			margin 0
+		.ctf-author-box-link
+			position relative
+			flex_box()
+			flex_direction(column)
+			justify_content(center)
+			height 64px
+			margin-bottom 10px
+		.ctf-author-avatar
+			position absolute
+			left 0
+			top 0
+			float none
+			width 64px
+			height 64px
+			border-radius(100%)
+			box-shadow( rgba(0, 0, 0, 0.02) 0px 0px 2px inset )
+			img
+				width 100%
+				height auto
+				box-shadow( rgba(0, 0, 0, 0.02) 0px 0px 2px inset )
+				
+		.ctf-author-name
+		.ctf-author-screenname
+			font-size 17px
+			line-height 21px
+			letter-spacing -0.03em
+			padding-left calc(64px + 8px)
+			display block
+		.ctf-author-screenname
+			color #8E8E8E !important
+		.ctf-tweet-content
+			padding 0
+			margin 0
+		.ctf-author-box
+			padding 0
+			width 100%
+		.ctf-tweet-actions
+			flex_box()
+			align_items(center)
+			margin 1em 0 0 0
+			.ctf-tweet-date,
+			.ctf-twitterlink
+				font-size 14px
+				line-height 17px
+				letter-spacing -0.03em
+				padding 0
+				margin 0
+			.ctf-tweet-date
+				position relative
+				flex_box()
+				align_items(center)
+				color #8E8E8E !important
+				&::after
+					content ""
+					display inline-block
+					width 3px
+					height 3px
+					border-radius 50%
+					background #8E8E8E
+					margin 0 8px
+			.ctf-twitterlink
+				float none
+				color #2AA3EF !important
+		p.ctf-media-link,
+		p.ctf-tweet-text
+			font-size 1.0625rem
+			line-height 1.1em
+			@media(min-width:1024px)
+				font-size 1.31rem
+		.ctf-tweet-text
+			a
+				text-decoration underline
+		.emoji
+			width 1em
+			height auto
+			display inline-block
+		.ctf-tweets,
+		.ctf-tweet-items
+			align-items start
+			height auto
+			.ctf-item
+				height auto
+				width 100%
+				max-width 475px
+				border 0
+				padding 26px
+				overflow visible
+				background var(--white)
+				position relative
+				&:nth-child(3n+2)
+					transform(translateY(35px))
+				&:nth-child(3n+3)
+					transform(translateY(-55px))
+				&:nth-child(3n+4)
+					transform(translateY(75px))
+				// @media(min-width:$laptop)
+				// 	min-height 425px
+			.ctf-tweet-media
+				// position absolute
+				top 100%
+				left 0
+				right 0
+				margin 1.4em 0 0 0
+				margin-right -26px
+				margin-left -26px
+				margin-bottom -26px
+				width calc(100% + 52px)
+				img
+					width 100%
+					border-radius(0)
+			.ctf-media-link
+				width 100%
+				margin-bottom 0
+				border 0
+				border-radius(0)
+				box-shadow(none)
+				&:after
+					border 0
+		#ctf-more
+			display none
+			width auto
+			margin 3rem auto
+ 

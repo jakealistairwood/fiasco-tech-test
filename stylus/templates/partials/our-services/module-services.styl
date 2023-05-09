@@ -1,0 +1,217 @@
+//
+// MODULE PRODUCTION
+//
+
+.back-to-top
+	.contained::after
+		height 0px
+	.contained::before
+		height 0px
+.back-to-top.in-view
+	.contained::after
+		height 200px
+		transition(height 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	.contained::before
+		height 147px
+		transition(height 0.5s 0.2s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+		@media(min-width:$tablet)
+			height 287px			
+
+.back-to-top
+	background transparent
+	width 100%
+	height 0
+	overflow visible
+	text-align right
+	flex_box()
+	flex_direction(row)
+	flex_wrap(nowrap)
+	align_items(flex-end)
+	z-index 5
+	position relative
+	.contained
+		&:before
+			position absolute
+			bottom 0px
+			right 80px
+			content ''
+			display block
+			z-index 1
+			background url('img/annotations/arrow-up.png') no-repeat center center transparent
+			background-size 100% auto
+			height 147px
+			width 91px
+			overflow hidden
+		&:after
+			position absolute
+			bottom 0
+			left 0
+			right -100px
+			height 200px
+			content ''
+			display block
+			background var(--darkgreen)
+			z-index 0
+			clip-path polygon(95% 0, 0% 100%, 100% 100%)
+	.button
+		position relative
+		color var(--yellow)
+		border-color var(--yellow)
+		z-index 2
+		margin-bottom 3rem
+	@media(min-width: $tablet)
+		.contained
+			&:before
+				right 40px
+				height 287px 
+				width 171px
+
+
+// MODULE PRODUCTION
+#page-background
+	display block
+	z-index -1
+	transition(background-color 0.5s ease)
+
+	
+.module-service
+	color var(--black)
+	position relative
+	overflow hidden
+	// h3
+	// 	white-space normal
+	// 	word-break break-word
+	.button
+		margin-right 0.5em
+		font-size 1em
+		margin-top 1em
+		margin-bottom 1em
+		display inline-block
+		color var(--black)
+		border-color var(--black)
+		&:hover
+			transition(opacity 0.3s ease)
+			opacity(0.8)
+	.large
+		margin-right 1.5em
+	.details
+		display none
+		padding-left 0
+	
+	&:nth-child(even)
+		.module-service__image
+			clip-path polygon(8% 0, 100% 0, 87% 100%, 0 79%)
+	&:last-of-type
+		.module-service__bg
+			padding-bottom 120px
+	
+	&.showing
+		.module-service__image
+			opacity(1)
+			transition(opacity 0.5s ease)
+			@media(min-width:$laptop)
+				top 55%
+				transition(top 0.5s ease, opacity 0.5s ease)
+	
+	@media(max-width:1023px)
+		.module-service__image
+			transform(translateY(0) !important)
+		
+
+.module-service__bg
+	padding 30px		
+	@media (min-width: $tablet)
+		padding 80px 90px
+	@media(min-width: $laptop)
+		flex_box()
+		flex_wrap(nowrap)
+		flex_direction(column)
+		align_content(center)
+		justify_content(center)
+		margin-left auto
+		.title
+			width 100%
+				
+.module-service__image
+	max-width 100%
+	height auto
+	margin-bottom 2em
+	display block
+	width 100%
+	clip-path: polygon(0 0, 92% 0, 100% 80%, 60px 100%);
+	background var(--grey)
+	opacity(0)
+	transition(opacity 0.5s ease)
+	img
+		width auto
+		height auto
+		min-width 101%
+		min-height 101%
+		position absolute
+		top 50%
+		left 50%
+		transform( translate(-50%,-50%) )
+		bottom 0
+		object-fit cover
+	
+.module-service__formatter
+	width 100%
+	position relative
+	height 0
+	padding-bottom 68%
+
+
+.module-service__content
+	width 100%
+	max-width 486px
+	@media(min-width:$laptop)
+		flex_box()
+		flex_wrap(wrap)
+		flex_direction(column)
+		// align_content(center)
+		// justify_content(center)
+
+
+@media (min-width: $tablet)
+	.module-service
+		.details
+			display block
+
+
+@media (min-width: $laptop)
+	.module-service
+		.module-service__image
+			top 100%
+			// transition(translateY 1s 0.5s ease)
+
+	.module-service__bg
+	#page-background
+		max-width 60%
+		padding-left 15%
+		.module-service__image
+			position absolute
+			left 5vw
+			max-width 50%
+			top 65%
+			transform(translateY(-50%))
+			transition(top 0.5s ease, opacity 0.5s ease)
+	.ie
+		.module-service__bg
+			display block
+	.module-service__bg
+	#page-background
+		min-height 100vh
+		padding-right 10%
+		width 100%
+		padding-left 20%
+	.module-service__bg
+		background transparent !important
+	#page-background
+		position fixed
+		top 0
+		right 0
+
+@media (min-width: 1440px)
+	.module-service
+		background transparent
+		z-index 2

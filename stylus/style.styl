@@ -1,0 +1,37 @@
+/*
+ * Theme Name:   Theatre Bristol
+ * Theme URI:    https://fiasco.design
+ * Version:      4.0
+ * Author:       Fiasco Design
+ * Author URI:   https://fiasco.design
+ * Tags:         design, animation, bristol
+ * Run:          stylus -w -u nib -c stylus/style.styl -o ./
+ * Run All:      stylus -w -u nib -c stylus/style.styl stylus/editor-style.styl -o ./
+ * Running the above code will collate two .css files: 'style.css' in the root for the front end and 'editor-style.css' just for Gutenberg blocks in the backend.
+ */ 
+
+
+// Global Base Styles
+@import "boilerplate.styl"
+@import "mixins.styl"
+@import "theme.styl"
+@import "keyframes.styl"
+@import "typography.styl"
+@import "global.styl"
+@import "wysiwyg.styl"
+
+// Site Modules
+@import "parts/*"
+
+@import "templates/partials/quick-links.styl"
+@import "templates/partials/keep-in-touch.styl"
+@import "templates/partials/our-services/module-services.styl"
+ 
+// IMPORT ALL BLOCKS
+@import 'blocks/*'
+
+// FULL TEMPLATES
+@import "templates/*"
+
+// Helpers
+@import "global-helpers.styl"

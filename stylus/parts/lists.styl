@@ -1,0 +1,182 @@
+/*
+* Lists
+*/
+
+.list
+	opacity(0)
+	top 10px
+.lists.in-view
+	.list
+		top 0
+		opacity(1)
+		transition(all 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+		delay = 0s
+		for num in (1..35)
+			&:nth-child({num})
+				transition-delay delay
+			delay = delay + 0.1s
+
+.lists
+	flex_box()
+	flex_direction(column)
+	margin-bottom -1rem
+	.list
+		width 100%
+		flex_box()
+		flex_direction(column)
+		margin-bottom 1rem
+		padding-bottom 1rem
+		border-bottom 0.09375rem solid rgba(204, 214, 214, 0.4)
+		a
+			width 100%
+			height auto
+			&.list__image
+				position relative
+				height 115px
+				width 205px
+				flex_shrink(0)
+				background rgba(0,0,0,0.1)
+				overflow hidden
+				.list__format
+					height 0
+					padding-bottom 60%
+					overflow hidden
+				img.post_thumbnail
+					width 100%
+		.list__content
+			padding-top 1rem
+			h4
+				margin 0
+			.excerpt
+				color #809999
+				margin-top 8px
+				letter-spacing -0.04em
+				.read-more
+					color var(--darkgreen)
+					display inline-block
+			.list__meta
+				text-transform uppercase
+				font-size 75%
+				letter-spacing 0.02em
+				margin-bottom 0.9em
+			&-meta
+				flex_shrink(0)
+				flex_box()
+				flex_direction(column)
+				margin-top 10px
+				span
+					display inline-block
+					line-height 1
+		&:hover
+			.lists__content
+				h4
+					color var(--yellow)
+	@media( min-width: $tablet )
+		margin-bottom -25px
+		.list
+			flex_direction(row)
+			margin-bottom 25px
+			padding-bottom 25px
+			.list__content
+				flex_box()
+				align_items(center)
+				justify_content(space-between)
+				padding 1rem 0 1rem 1rem
+				width 100%
+				&-meta
+					text-align right
+					margin 0 0 0 15px
+	@media( min-width: $desktop )
+		.list
+			.list__content
+				padding 1rem 0 1rem 2rem
+				h4
+					font-size 1.3125rem
+					line-height initial
+				.excerpt
+					font-size 1.5rem
+					line-height 1.625rem
+				&-details
+					max-width 640px
+				&-meta
+					font-size 1.625rem
+					margin-left 30px
+					margin-top auto
+.lists
+	.list
+		a.list__image-jobs
+			flex_box()
+			align_items(center)
+			justify_content(center)
+			padding 30px
+		a.list__image-events
+			flex_box()
+			flex_direction(column)
+			justify_content(flex-end)
+			.inner-box
+				position relative
+				flex_box()
+				flex_direction(column)
+				justify_content(flex-end)
+				width 60%
+				max-width 200px
+				margin-left auto
+				background var(--darkgreen)
+				z-index 1
+				text-transform uppercase
+				h6
+					position relative
+					font-size 1.5rem
+					line-height 1
+					padding 15px 15px 10px 25px
+					margin auto 0 0 0
+					z-index 2
+					span
+						display block
+						overflow-wrap break-word
+		&:nth-child(3n+1)
+			a.list__image-jobs
+				background var(--mint)
+			a.list__image-events
+				background var(--yellow)
+				.inner-box
+					width 50%
+					margin-left 0
+					transform(rotate(-14deg))
+					h6
+						color var(--yellow)
+						padding 15px 30px 10px 15px
+						transform(rotate(14deg))
+					&::after
+						content ""
+						display block
+						position absolute
+						top 0
+						right 0
+						background inherit
+						width 200%
+						height 200%
+		&:nth-child(3n+2)
+			a.list__image-jobs
+				background var(--pink)
+			a.list__image-events
+				background var(--pink)
+				.inner-box
+					clip-path polygon(0 0, 100% 0, 100% 100%, 18px 100%)
+					h6
+						color var(--pink)
+						text-align right
+						span
+							margin-left auto
+		&:nth-child(3n+3)
+			a.list__image-jobs
+				background var(--yellow)
+			a.list__image-events
+				background var(--mint)
+				.inner-box
+					clip-path polygon(0 0, 100% 0, 100% 100%, 18px 100%)
+					h6
+						color var(--mint)
+						text-align right
+						span
+							margin-left auto

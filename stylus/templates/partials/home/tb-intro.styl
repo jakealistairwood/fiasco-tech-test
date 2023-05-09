@@ -1,0 +1,333 @@
+
+.home
+	.home-featured-module
+		.featured_image
+			transform( translateY(100%) )
+			transition( transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	.home-featured-module.in-view
+		.featured_image
+			transform( translateY(0) )
+			transition( transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+
+.home-featured-module
+	// overflow hidden
+	margin-bottom 75px
+	margin-top -120px
+	padding-top 120px
+	@media(min-width:$large-desktop)
+		margin-top -150px
+		padding-top 150px
+
+.home
+	.home-page-links
+		.columns
+			> div
+				opacity(0)
+				transform( translateY(50px) )
+				transition(  opacity 0.2s ease, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	.home-page-links.in-view
+		.columns
+			> div
+				opacity(1)
+				transform( translateY(0) )
+				transition( opacity 0.2s ease, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+				&:first-child
+					transition-delay 0.3s
+			delay = 0s
+			for num in (1..35)
+				&:nth-child({num}) > div
+					transition-delay delay
+					&:first-child
+						delay = delay + 0.3s
+						transition-delay delay
+				delay = delay + 0.5s
+				
+			&:nth-child(odd)
+				.column-text.column
+					h4
+						&::after
+							opacity(1)
+							transform( translateY(0px), scale(1) )
+							transition( opacity 0.2s 2s ease, transform 0.3s 2s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+			&:nth-child(even)
+				.column-text.column
+					h4
+						&::after
+							opacity(1)
+							transform( rotate(0), scale(1) )
+							transition( opacity 0.2s 1s ease, transform 0.3s 1s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+
+.tb-intro
+	color var(--darkgreen)
+	padding-top 75px
+	padding-bottom 75px
+	background var(--mint)
+	overflow hidden
+	.contained
+		.columns .column-media a
+			display block
+		&.featured
+			.columns
+				.column-text
+					margin-bottom 75px
+					p.subtitle
+						margin-bottom 30px
+					.text-content
+						position relative
+						padding $paddingX
+						margin - $paddingX
+						display inline-block
+						max-width 360px
+						@media(min-width:1240px)
+							max-width 550px
+						&::after
+							content ""
+							display block
+							position absolute
+							top -25px
+							left -75px
+							bottom -15px
+							right -50px
+							background-image url(img/annotations/circle-2.png)
+							background-size contain
+							background-repeat no-repeat
+							z-index 0
+							pointer-events none
+				.column-media
+					position relative
+					flex_box()
+					max-width none
+					width "calc(100% + %s)" % $paddingX
+					height 63vw
+					&::after,
+					&::before
+						content ""
+						display block
+						position absolute
+						top 0
+						right 0
+						height 100%
+						width 100%
+					&::before
+						background var(--darkgreen)
+						clip-path polygon(0 0, 100% 0, 100% 80%, 75px 100%)
+						z-index 1
+					&::after
+						background var(--mint)
+						clip-path polygon(77px 100%, 100% 80%, 100% 100%)
+						z-index 3
+					.featured-image-wrapper
+						position relative
+						inline_flex()
+						justify_content(center)
+						align_items(flex-end)
+						margin 0 auto
+						.annotation-wrapper
+							position absolute
+							top 0
+							right 20%
+							width 60px
+							transform(translate(80%, -60%))
+							z-index 3
+						.featured_image
+							position relative
+							object-fit contain
+							max-height calc(100% + 45px)
+							z-index 2
+							
+		&.page-links .columns
+			max-width 400px
+			flex_box()
+			flex_direction(column-reverse)
+			.column-media
+				margin-bottom $margin
+			.column-text
+				z-index 2
+				h4
+					margin-bottom 0
+					a
+						text-decoration none
+						&.subtitle
+							display block
+							margin-bottom 5px
+							text-transform capitalize
+							font-size 1.2rem
+							line-height 1
+							@media(min-width:$desktop)
+								font-size 24px
+						&.page-title
+							position relative
+							display inline-block
+			&:nth-child(odd)
+				.column-text
+					h4
+						position relative
+						display inline-block
+						margin-bottom 4em
+						&::after
+							content ""
+							display block
+							position absolute
+							width 100%
+							max-width 350px
+							height 4em
+							top 100%
+							left 0
+							background-image url('img/annotations/underline-4.png')
+							background-repeat no-repeat
+							background-size 100% auto
+							overflow visible
+							z-index 1
+							opacity(0)
+							transform( translateY(10px), scale(0) )
+							transition(  opacity 0.2s ease, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+					h4 a
+						&.page-title::after
+							content ""
+							display inline-block
+							position relative
+							bottom - $margin
+							margin-bottom $margin
+							left 0
+							width 100%
+							height 60px
+							background-image url(img/annotations/hero-underline.png)
+							background-size contain
+							background-repeat no-repeat
+				.column-media img
+					clip-path polygon(0 45px, 100% 0, 100% 100%, 45px 100%)
+			&:nth-child(even)
+				.column-text
+					h4
+						display inline-block
+						position relative
+						overflow visible
+						a
+							position relative
+							z-index 3
+						&::after
+							content ""
+							display block
+							position absolute
+							top -43px
+							left -90px
+							bottom -50px
+							width 100%
+							background-image url('img/annotations/circle-4.png')
+							background-size 100% 100%
+							background-repeat no-repeat
+							z-index 2
+							opacity(0)
+							transform-origin 50% 50%
+							transform( rotate(360deg), scale(0) )
+							transition(  opacity 0.2s ease, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+				.column-media
+					position relative
+					z-index 1
+					img
+						clip-path polygon(0 0, 92% 0, 100% 80%, 45px 100%)
+	@media (min-width: $tablet)
+		padding-top 140px
+		padding-bottom 140px
+		.contained
+			&.featured .columns
+				flex_box()
+				flex_direction(row)
+				align_items(center)
+				.column
+					width 50%
+				.column-text
+					margin-bottom 0
+				.column-media
+					height 33vw
+					margin-left "calc((-100vw + %s) / 4)" % $tablet-content-width
+					margin-right "calc((-100vw + %s) / 2)" % $tablet-content-width
+					// &::after,
+					// &::before
+					//     width 360px
+					&::before
+						clip-path polygon(0 0, 100% 0, 100% 80%, 75px 100%)
+					&::after
+						clip-path polygon(75px 100%, 100% 80%, 100% 100%)
+					.featured-image-wrapper
+						height auto
+			&.page-links
+				flex_box()
+				flex_wrap()
+				justify_content(space-between)
+				.columns
+					max-width none
+					flex_basis calc(50% - 15px)
+					.column-text
+						flex_grow(0)
+						max-width 500px
+					&:nth-child(odd)
+						margin-left 0
+						.column-text h4 a.page-title::after
+							margin-bottom 0
+						.column-media
+							margin-bottom 2.5em
+					&:nth-child(even)
+						margin-right 0
+						flex_direction(column)
+						transform(translateY(25%))
+						.column-text
+							flex_grow(0)
+							margin-bottom 2.5em
+					.column
+						width 100%
+	@media (min-width: $laptop)
+		.contained
+			&.featured .columns .column-media
+				margin-left "calc((-100vw + %s) / 4)" % $desktop-content-width
+				margin-right "calc((-100vw + %s) / 2)" % $desktop-content-width
+				.featured-image-wrapper
+					.annotation-wrapper
+						width 80px
+						right 15%
+						top 2%
+						transform(translate(45%, -130%))
+					.featured_image
+						max-height calc(100% + 75px)
+			&.page-links .columns
+				&:nth-child(odd) .column-media img
+					clip-path polygon(0 75px, 100% 0, 100% 100%, 45px 100%)
+				&:nth-child(even) .column-media img
+					clip-path polygon(0 0, 92% 0, 100% 80%, 60px 100%)
+	@media (min-width: $desktop)
+		.contained.featured .columns
+			.column-text
+				.text-content
+					padding $paddingX *2
+					margin - $paddingX *2
+					display inline-block
+					&::after
+						top -50px
+						left -75px
+						bottom -125px
+						right -75px            
+			.column-media
+				&::before
+					clip-path polygon(0 0, 100% 0, 100% 80%, 90px 100%)
+				&::after
+					clip-path polygon(90px 100%, 100% 80%, 100% 100%)
+	@media (min-width: $large-desktop)
+		padding-top 240px
+		padding-bottom 240px
+		.contained
+			&.featured .columns .column-media
+				margin-left "calc((-100vw + %s) / 4)" % $large-desktop-content-width
+				margin-right "calc((-100vw + %s) / 2)" % $large-desktop-content-width
+				.featured-image-wrapper
+					.annotation-wrapper
+						width 128px
+						right 0%
+						top 0
+						transform(translate(50%, -105%))
+					.featured_image
+						max-height calc(100% + 100px)
+			&.page-links .columns
+				&:nth-child(odd) .column-media img
+					clip-path polygon(0 75px, 100% 0, 100% 100%, 60px 100%)
+				&:nth-child(even) .column-media img
+					clip-path polygon(0 0, 92% 0, 100% 80%, 60px 100%)

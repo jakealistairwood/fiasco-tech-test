@@ -1,0 +1,267 @@
+// ========================================================
+// TYPOGRAPHY
+// =========================================================
+
+
+
+@font-face {
+	font-family: 'fiascons';
+	font-weight: normal;
+	font-style: normal;
+	src: url('./fonts/fiascons.woff2') format('woff2'),
+	     url('./fonts/fiascons.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Helmet Neue';
+	font-weight: 500;
+	font-style: normal;
+	src: url('./fonts/helmet-regular.woff2') format('woff2'),
+	     url('./fonts/helmet-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Garnett';
+	font-weight: 500;
+	font-style: normal;
+	src: url('./fonts/garnett-bold.woff2') format('woff2'),
+	     url('./fonts/garnett-bold.woff') format('woff'),
+	     url('./fonts/garnett-bold.ttf') format('ttf'),
+	     url('./fonts/garnett-bold.otf') format('otf');
+}
+
+
+
+
+
+:root
+	
+	// FONT FAMILIES
+	--headingFont 'Garnett', 'Helvetica', sans-serif
+	--textFont 'Helmet Neue', 'Helvetica', sans-serif
+	--iconFont 'fiascons' !important
+
+	// FONT SIZING
+	--fs-h1 3rem
+	--fs-h2 2rem
+	--fs-h3 1.5rem
+	--fs-h4 1.3rem
+	--fs-b 1rem
+	--fs-small 0.9rem
+	--fs-caption var(--fs-small)
+	
+	@media(min-width:$tablet)
+		--fs-h1 3rem
+		--fs-h2 2rem
+		--fs-h3 1.5rem
+		--fs-h4 1.3rem
+		--fs-b 1rem
+	
+	@media(min-width:$laptop)
+		--fs-h1 4rem
+		--fs-h2 3rem
+		--fs-h3 2rem
+		--fs-h4 2rem
+		--fs-b 1.1rem
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--darkgreen);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: var(--darkgreen);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: var(--darkgreen);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--darkgreen);
+}
+
+body
+	font-family var(--textFont)
+	font-size 1rem
+	line-height 1.25rem
+	font-weight 400
+	color var(--text-color)
+	optimise()
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+	font-family var(--headingFont)
+	font-weight 500
+	color inherit
+	letter-spacing -0.01em
+	text-align inherit
+	margin 0 0 1em 0
+	optimise()
+
+h1, h2, h3, .h1, .h2, .h3
+	text-transform uppercase
+	margin-bottom 0.3em
+
+h1, .h1
+	font-size 2.75rem
+	line-height 3rem
+	@media(min-width: $desktop)
+		font-size 6rem
+		line-height 6.25rem
+
+h2, .h2
+	font-size 2rem
+	line-height 1.12em
+	@media(min-width: $desktop)
+		font-size 3.5rem
+
+h3, .h3
+	font-size 2rem
+	line-height 2.125rem
+	@media(min-width: $desktop)
+		font-size 3.5rem
+		line-height 3.875rem
+
+h4, .h4
+	font-size 1.5rem
+	line-height 1.1em
+	letter-spacing -0.04em
+	@media(min-width: $desktop)
+		font-size 2.25rem
+		
+h5, .h5
+	font-size 1.1875rem
+	line-height 1.3125rem
+	@media(min-width: $desktop)
+		font-size 2.25rem
+		line-height 3.125rem
+	
+h6, .h6
+	font-size 1.0625rem
+	line-height 1.25rem
+	@media(min-width: $desktop)
+		font-size 1.125rem
+		line-height 1.3125rem
+
+p
+	font-size 1.0625rem
+	line-height 1.15em
+	margin 0 0 $margin 0
+	color inherit
+
+p, li, input, textarea, select, label
+	@media(min-width:$laptop)
+		font-size 1.31rem
+
+.subtitle
+	font-family var(--textFont)
+	&-1
+		font-size 1.0625rem
+		line-height 1.1875rem
+	&-2
+		font-size 1.0625rem
+		line-height 1.1875rem
+	@media(min-width: $desktop)
+		&-1
+			font-size 2rem
+			line-height 2.25rem
+		&-2
+			font-size 1.5rem
+			line-height 1.625rem
+
+b, strong
+	font-family var(--textFont)
+	font-size inherit
+	line-height inherit
+
+mark
+	color var(--text-color)
+	background var(--yellow)
+	padding 0 .3rem
+		
+	
+h1.highlight:nth-child(3)
+	&::before
+		transform(rotate(-0.5deg))
+
+blockquote
+	position relative
+	font-style normal
+	font-size 1.375rem
+	line-height 1.5rem
+	letter-spacing -0.04em
+	width 100%
+	margin $margin auto
+	padding-left 0
+	p
+		font-style normal
+		font-size 1.375rem
+		line-height 1.5rem
+		color inherit
+		margin 20px 0 0
+	&::before
+		content ''
+		display block
+		width 38px
+		height 27px
+		background-repeat no-repeat
+		background-position 0 0
+		background-size contain
+		background-image url(img/quote-darkgreen.svg)
+	cite,
+	.caps
+		text-transform uppercase
+		font-style normal
+		font-size 1.0625rem
+		line-height 1.3125rem
+		margin-top 20px
+		letter-spacing 0
+	&.wp-block-quote
+		border-left 0
+		padding-left 0
+		margin-left auto
+		margin-right auto
+	@media(min-width: $tablet)
+		font-size 2.25rem
+		line-height 2.5rem
+		p
+			font-size 2.25rem
+			line-height 2.5rem
+			margin-top 30px
+		&::before
+			width 76px
+			height 54px
+		cite,
+		.caps
+			font-size 1.125rem
+			margin-top 40px
+
+.caps, .section-title
+	text-transform uppercase
+
+.section-title
+	letter-spacing 0
+
+.underline
+	position relative
+	display inline-block
+	&::after
+		content ""
+		display block
+		position absolute
+		width calc(100% + 20px)
+		height 20px
+		bottom -0.5em
+		left -10px
+		background-image url('img/annotations/underline.png')
+		background-repeat no-repeat
+		background-size 100% auto
+		overflow visible
+		z-index 1
+
+.underline--alt
+	margin-bottom 0.6em
+	&:after
+		height 0.3em
+		bottom -0.4em
+		background-image url('img/annotations/underline-3.png') 
+		background-size 100% auto
+		

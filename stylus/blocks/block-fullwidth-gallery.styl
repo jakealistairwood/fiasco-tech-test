@@ -1,0 +1,66 @@
+/*
+* FULL WIDTH GALLERY BLOCK STYLING
+*
+*/
+
+.fullwidth-gallery
+	li
+		opacity(0)
+		transform(translateY(50px))
+		transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	&.in-view
+		li
+			opacity(1)
+			transform( translateY(0) )
+			transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+			delay = 0s
+			for num in (1..10)
+				&:nth-child({num})
+					transition-delay delay
+				delay = delay + 0.1s
+
+// .block.fullwidth-gallery,
+// .block.fullwidth-image
+// 	margin-top 6vw
+// 	margin-bottom 6vw
+
+.fullwidth-gallery
+	display block
+	margin-left 0
+	margin-right 0
+	ul
+		flex_box()
+		flex_direction(column)
+		li
+			margin-bottom 30px
+			@media (max-width: 767px)
+				&:last-child
+					margin-bottom 0
+		img
+			width 100%
+	@media (min-width: $tablet)
+		ul
+			flex_direction(row)
+			flex_wrap(wrap)
+			margin-right -1rem
+			margin-left -1rem
+			li
+				// width calc(50% - (0.9375rem *2))
+				// margin 0.9375rem
+	@media (min-width: $laptop)
+		ul
+			flex_wrap(nowrap)
+			justify_content(center)
+			margin-top 0
+			margin-bottom 0
+			li
+				margin 0 1rem
+				flex-basis 100%
+			img
+				object-fit cover
+				min-height 100%
+	@media (min-width: $desktop)
+		.contained
+			padding 0 4vw
+			max-width none
+			width 100%

@@ -1,0 +1,71 @@
+//
+// PAGINATION
+//
+
+.pagination-wrapper
+    margin-top 40px
+    flex_box()
+    flex_direction(column)
+    align_items(center)
+    justify_content(center)
+    .placeholder
+        cursor not-allowed
+        pointer-events none
+        opacity 0.3
+    .next-link,
+    .prev-link
+        a
+            position relative
+            flex_box()
+            align_items(center)
+            justify_content(center)
+            font-size 1.5rem
+            line-height 1
+    .next-link a::after,
+    .prev-link a::before
+        content ""
+        display block
+        width 33px
+        height 14px
+        background url(img/fiasco-arrow.svg)
+        background-size contain
+        background-repeat no-repeat
+    .next-link a::after
+        margin-left 27px
+    .prev-link a::before
+        margin-right 27px
+        transform(rotate(180deg))
+    .prev-link
+        margin-top 48px
+        margin-bottom 48px
+    nav.navigation.pagination
+        .nav-links
+            flex_box()
+            align_items(center)
+            justify_content(center)
+            .page-numbers
+                font-size 17px
+                line-height 1
+                width 46px
+                height 46px
+                flex_box()
+                align_items(center)
+                justify_content(center)
+                &.current
+                    background var(--green)
+                &.prev,
+                &.next
+                    display none
+    @media (min-width: $laptop)
+        flex_direction(row)
+        .prev-link
+            margin-right auto
+        .next-link
+            order 3
+            margin-left auto
+         nav.navigation.pagination
+            .nav-links
+                .page-numbers
+                    font-size 1.5rem
+                    width 53px
+                    height 53px

@@ -1,0 +1,79 @@
+/*
+ * Keep in touch
+ */
+ 
+.keep-in-touch
+	position relative
+	background var(--darkgreen)
+	padding 125px 0 55px
+	overflow hidden
+	.annotation
+		position absolute
+		top -80px
+		left -25px
+		width 70px
+	.section-title
+		font-size 2rem
+		line-height 2.125rem
+		color var(--pink)
+		text-align left
+		margin-bottom 15px
+		+ p
+			max-width 270px
+			margin-bottom 0
+			color var(--pink)
+	.columns
+		.column:first-child
+			margin-bottom 30px
+	.cta
+		min-width 214px
+		margin-bottom 0.5em
+		@media( max-width: $large-desktop )
+			span
+				display none
+	@media (min-width: $tablet)
+		padding 70px 0
+		.columns
+			flex_direction(row)
+			.column
+				width 50%
+				&:first-child
+					margin-bottom 0
+				&:last-child
+					flex_box()
+					flex_direction(column)
+					align_items(flex-end)
+					justify_content(flex-end)
+		.annotation
+			top -20px
+			left auto
+			right calc(100% + 25px)
+	@media (min-width: $laptop)
+		.annotation
+			width 120px
+	@media (min-width: $desktop)
+		padding 113px 0 121px
+		.annotation
+			top 115px
+			right calc(100% + 80px)
+		.section-title
+			font-size 4.5rem
+			line-height 4.5rem
+			+ p
+				max-width none
+				margin-right -45px
+				font-size 2rem
+				line-height 2.1875rem
+	
+	@media (min-width: $large-desktop)
+		.section-title
+			+ p
+				max-width 520px
+				margin-right 0
+	@media (min-width: 1720px)
+		.contained
+			position static
+		.annotation
+			right auto
+			left 0
+ 

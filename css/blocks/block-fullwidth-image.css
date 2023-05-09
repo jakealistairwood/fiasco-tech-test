@@ -1,0 +1,1 @@
+.fullwidth-image{position:relative;height:30vh;overflow:hidden;margin:0}.fullwidth-image img{position:absolute;top:50%;left:50%}.fullwidth-image+.fullwidth-image{margin-top:6vw}@media (min-width:$tablet){.fullwidth-image{min-height:320px}}@media (min-width:$laptop){.fullwidth-image{min-height:480px}}@media (min-width:$large-desktop){.fullwidth-image{min-height:672px}}

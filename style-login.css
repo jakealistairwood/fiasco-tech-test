@@ -1,0 +1,110 @@
+/*
+*
+* Style login page
+*
+*/
+
+
+html {
+  background: #d6f0e7 no-repeat left top;
+}
+
+body.login {
+  background: transparent;
+}
+
+#login {
+  padding: 8% 0 0;
+  background: transparent;
+}
+
+#login a {color: #000 !important;}
+
+#loginform {
+  background-color: transparent;
+}
+
+#loginform label {
+  text-transform: none;
+  color: rgba(0,0,0,0.8);
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+body.login div#login h1 a {
+  background-image: url(./img/site-logo.svg);
+  background-size: contain !important;
+  background-position:center center;
+  width:auto;
+}
+
+#registerform {
+  background-color:transparent;
+}
+
+.login input {
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+.login input[type=text], .login input[type=password],
+.login input[type="email"] {
+  height: 60px;
+  line-height: 60px;
+  background: #FFF;
+  border: 1px solid transparent;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 6px 10px;
+  margin: 5px 0 16px 0;
+  -moz-boxshadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+}
+
+.login input[type=checkbox] {
+  border: 1px solid transparent;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-boxshadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input[type=checkbox]:checked:before {
+  color: #0062FF;
+}
+
+#wp-submit {
+  width: 100%;
+  background: #000 none repeat scroll 0% 0%;
+  margin: 40px auto 20px;
+  color: #fff;
+  text-transform: none;
+  display: block;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  padding: 5px;
+  height: auto;
+  border: none;
+  height: 60px;
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 600;
+  text-shadow: none;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.login #nav, .login #backtoblog {
+  padding: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+.login #nav a, .login #backtoblog a {
+  color: rgba(0,0,0,0.5) !important;
+}
+
+.login #nav a:hover, .login #backtoblog a:hover {
+  color: rgba(0,0,0,1) !important;
+}

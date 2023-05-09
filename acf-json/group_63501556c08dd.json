@@ -1,0 +1,78 @@
+{
+    "key": "group_63501556c08dd",
+    "title": "Resource",
+    "fields": [
+        {
+            "key": "field_6350155c420a9",
+            "label": "Options",
+            "name": "options",
+            "type": "radio",
+            "instructions": "Customize what Thumbnail to use for displaying this resource?\r\nThis will override the featured image if selected.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "tile--shapes tile--green": "Shapes Green",
+                "tile--shapes tile--yellow": "Shapes Yellow",
+                "tile--shapes tile--pink": "Shapes Pink",
+                "tile--logo tile--green": "Theatre Bristol Logo Dark Green",
+                "tile--logo tile--yellow": "Theatre Bristol Logo Yellow",
+                "tile--logo tile--pink": "Theatre Bristol Logo Pink",
+                "tile--logo tile--lightgreen": "Theatre Bristol Logo Green",
+                "tile--ace tile--green": "Arts Council Logo Dark Green",
+                "tile--ace tile--cream": "Arts Council Logo Cream"
+            },
+            "allow_null": 1,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_6357fe49cd17c",
+            "label": "Theatre Bristol Badge",
+            "name": "badge",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "tile--tb": "Add a Theatre Bristol Badge to this resource?"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resources"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1666711312
+}

@@ -1,0 +1,215 @@
+// FLEX STYLES
+//
+// These styles are just for rows. For columns use flex_direction(column) mixin
+// For adding these flexbox styles to other classes we can use @extend
+// i.e. @extend .w-10
+//
+.flex
+    flex_box()
+    flex_wrap()
+    
+.flex__row
+    flex_box(inherit)
+    flex_wrap(inherit)
+    flex_direction(inherit)
+    justify_content(inherit)
+    width 100%
+
+.flex--no-wrap
+    flex_wrap(nowrap)
+
+.flex--reverse
+    flex_direction(row-reverse)
+
+.flex--justified
+    justify_content(space-between)
+
+.flex--justified-left
+    &::after
+        content ''
+        display block
+        margin-right auto
+    .flex__row
+        &::after
+            content ''
+            display block
+            margin-right auto
+
+.flex--aligncenter
+    align_items(center)
+
+.flex--alignbottom
+    align_items(flex-end)
+
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    .w-{num}
+        width 100%
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    // SEE VARIABLES.STYL FOR SETTING BREAKPOINTS
+    // LARGE MOBILE = w-{num}
+    @media(min-width: $large-mobile)
+        .w-{num}
+            width (num)%
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    // TABLET = w-{num}-tb
+    @media(min-width: $tablet)
+        .w-{num}-tb
+            width (num)%
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    // LAPTOP = w-{num}-lp
+    @media(min-width: $laptop)
+        .w-{num}-lp
+            width (num)%
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    // DESKTOP = w-{num}-dp
+    @media(min-width: $desktop)
+        .w-{num}-dp
+            width (num)%
+for num in (10 20 25 30 33 34 40 50 60 70 75 80 90 100)
+    // LARGE DESKTOP = w-{num}-lp
+    @media(min-width: $large-desktop)
+        .w-{num}-ld
+            width (num)%
+
+// THIS CLASS MAKES OBJECTS IN MAX-WIDTH CONTAINERS BREAK OUT AND FILL SCREEN
+.max-width,
+.alignfull
+    margin-left calc(-50vw + 50%)
+    margin-right calc(-50vw + 50%)
+    max-width 100vw
+    width 100vw
+
+.alignwide
+    margin-left calc(-10vw)
+    margin-right calc(-10vw)
+    max-width 100vw
+
+.strong
+    font-weight 600
+
+.caps
+    text-transform uppercase
+
+.center
+    text-align center
+
+.white
+    color var(--white)
+    p,ul
+        color inherit
+
+.red
+    color $red
+    p,ul
+        color inherit
+
+.wrap
+    white-space pre-wrap
+.noscroll
+    overflow hidden !important
+.nomargin,
+.no-m
+    margin 0 !important
+.nopadding
+    padding 0 !important
+.site-main
+    clearfix()
+
+p.icon
+    background #FDEADC
+    border-radius(50%)
+    width 60px
+    height 60px
+    padding 20px
+    position relative
+    display block
+    overflow hidden
+    @media(min-width:768px)
+        width 90px
+        height 90px
+    img
+        position absolute
+        top 50%
+        left 50%
+        height 60% !important
+        width auto !important
+        padding 5px
+        object-fit contain
+        margin 0 !important
+        transform(translate(-50%,-50%))
+
+ul.arrows
+    text-align left
+    margin 3em 0 2em
+    padding 0
+    li
+        margin 0 0 2.5em 0
+        padding-left 3em
+        list-style none
+        position relative
+        font-weight 500
+        &:before
+            content ''
+            display inline-block
+            width 1.5em
+            height 1.5em
+            background url('img/rounded-arrow.svg') no-repeat center center transparent
+            background-size contain
+            position absolute
+            left 0
+            top -0.2em
+        span
+            font-weight 300
+
+ul.icons
+    text-align center
+    margin 2em 0
+    padding 2rem 0
+    width 100%
+    border-top 1px solid $peach
+    flex_box()
+    flex-wrap wrap
+    flex_direction(row)
+    align_content(center)
+    justify_content(space-between)
+    font-weight 400
+    @media(min-width:1024px)
+        padding 4rem 0
+        margin 4rem 0 0 0
+    li
+        list-style none
+        display block
+        width 50%
+        overflow hidden
+        margin 2rem 0
+        @media(min-width:600px)
+            width 33%
+        @media(min-width:1024px)
+            width 25%
+        &:nth-child(odd)
+            .icons__circle:before
+                color $orange
+    span.caps
+        font-weight 400
+        font-size 18px
+        letter-spacing 0.2rem
+        margin 1em 0
+        display block
+
+.highlight
+    position relative
+    display inline-block
+    &::before
+        content ''
+        display block
+        position absolute
+        width auto
+        height auto
+        top 0.2em
+        left -0.2em
+        right -0.2em
+        bottom 0em
+        background $blue
+        z-index -1
+        transform(translateY(-5px))
+

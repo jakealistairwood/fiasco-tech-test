@@ -1,0 +1,211 @@
+// ========================================================
+
+// STYLUS KEYFRAMES
+
+// INDEX:
+
+//   1 - Stylus Key Frames
+
+// =========================================================
+
+
+@keyframes bounceIn
+	0%
+		transform( translate(-50%, 100%) )
+	// 90%
+	// 	transform( translate(-50%, -3%) )
+	100%
+		transform( translateY(-50%, 0) )
+
+@keyframes bounceOut
+	0%
+		transform( translate(-50%, 0%) )
+	// 30%
+	// 	transform( translate(-50%, -25%) )
+	100%
+		transform( translateY(-50%, 100%) )
+
+@keyframes nudge
+	0%
+		transform( translate(-100%, 0%) )
+	94%
+		transform( translate(-100%, 0%) )
+	95%
+		transform( translate(-90%, 0%) )
+	96%
+		transform( translate(-101%, 0%) )
+	98%
+		transform( translate(-90%, 0%) )
+	100%
+		transform( translate(-100%, 0%) )
+
+@keyframes animateUp
+	0%
+		transform(translate3d(-50%, -50%, 0))
+	100%
+		transform(translate3d(-50%, -120%, 0))
+
+@keyframes animateUpLarge
+	0%
+		transform(translate3d(-50%, -50%, 0))
+	100%
+		transform(translate3d(-50%, -180%, 0))
+
+@keyframes animateUpMedium
+	0%
+		transform(translate3d(-50%, -50%, 0))
+	100%
+		transform(translate3d(-50%, -150%, 0))
+
+@keyframes drawIn
+	0%
+		stroke-dashoffset 10
+	100%
+		stroke-dashoffset 0
+
+@keyframes colorIn
+	0%
+		opacity(0)
+		transform(translateY(100%))
+		color var(--yellow)
+	100%
+		opacity(1)
+		transform(translateY(0%))
+		color var(--white)
+
+@keyframes fadein
+	0%
+		opacity(0)
+	80%
+		opacity(0)
+	100%
+		opacity(1)
+
+@keyframes load
+	0%
+		-webkit-transform rotate(0deg)
+		transform rotate(0deg)
+	100%
+		-webkit-transform rotate(360deg)
+		transform rotate(360deg)
+
+@keyframes bounce
+	0%
+		transform translateY(0em)
+		-webkit-transform translateY(0em)
+	60%
+		transform translateY(0em)
+		-webkit-transform translateY(0em)
+	70%
+		transform translateY(-.5em)
+		-webkit-transform translateY(-.5em)
+	80%
+		transform translateY(.5em)
+		-webkit-transform translateY(.5em)
+	100%
+		transform translateY(0em)
+		-webkit-transform translateY(0em)
+
+@keyframes rotate
+	0%
+		transform( rotate(0deg) )
+	100%
+		transform( rotate(180deg) )
+
+@keyframes rollIn
+	0%
+		opacity(0)
+		transform(translateY(-25%) rotateX(35deg))
+	100%
+		opacity(1)
+		transform(translateY(0%) rotateX(0deg))
+
+@keyframes rollOut
+	0%
+		opacity(1)
+		transform(translateY(0%) rotateX(0deg))
+	100%
+		opacity(0)
+		transform(translateY(25%) rotateX(-35deg))
+
+@keyframes bounceSpin
+	0%
+		transform(translate(0%, 0) rotate(0deg))
+	100%
+		transform(translate(230%, 0) rotate(360deg))
+
+@keyframes bounceSpin2
+	0%
+		transform(translate(230%, 0) rotate(360deg))
+	100%
+		transform(translate(0%, 0) rotate(0deg))
+
+@keyframes shake
+	0%
+		transform(rotate(-1deg))
+	50%
+		transform(rotate(1deg))
+
+@keyframes shakeIt
+	0%
+		transform(rotate(-2deg))
+	50%
+		transform(rotate(2deg))
+
+@keyframes fadeinSlow
+	0%
+		opacity(0)
+		visibility hidden
+	100%
+		opacity(1)
+		visibility visible
+
+@keyframes fadeoutSlow
+	0%
+		opacity(1)
+		visibility visible
+	100%
+		opacity(0)
+		visibility hidden
+
+@keyframes fadeInUp
+	0%
+		opacity(0)
+		margin-top 20px
+	80%
+		opacity(1)
+	100%
+		opacity(1)
+		margin-top 0
+
+@keyframes fadeTransformUp
+	0%
+		opacity(0.1)
+		transform(translateY(30px))
+	80%
+		opacity(1)
+	100%
+		opacity(1)
+		transform(translateY(0px))
+
+@keyframes fadeInSlowUp
+	0%
+		opacity(0)
+		margin-top 20px
+	100%
+		opacity(1)
+		margin-top 0
+
+@keyframes right-left
+	0%
+		margin-left 0
+	50%
+		margin-left 5px
+	100%
+		margin-left 0
+
+@keyframes ajax-spin
+	0%
+		transform: translateX(-50%) rotate(0deg)
+	100%
+		transform: translateX(-50%) rotate(180deg)

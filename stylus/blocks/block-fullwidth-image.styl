@@ -1,0 +1,35 @@
+/*
+* FULL WIDTH IMAGE BLOCK STYLING
+*
+*/
+
+
+.fullwidth-image
+	opacity(0)
+	transform(translateY(50px))
+	transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	&.in-view
+		opacity(1)
+		transform( translateY(0) )
+		transition(opacity 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4), transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+
+.fullwidth-image
+	position relative
+	height 30vh
+	overflow hidden
+	margin 0
+	img
+		position absolute
+		top 50%
+		left 50%
+		transform( translate(-50%, -50%) )
+		min-width 100vw
+		height auto
+	+ .fullwidth-image
+		margin-top 6vw
+	@media (min-width: $tablet)
+		min-height 320px
+	@media (min-width: $laptop)
+		min-height 480px
+	@media (min-width: $large-desktop)
+		min-height 672px

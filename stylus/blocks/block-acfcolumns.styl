@@ -1,0 +1,48 @@
+/*
+* MEDIA AND TEXT BLOCK STYLING
+*
+*/
+
+.wp-block-group.has-dark-green-background-color
+	background var(--darkgreen)
+	color var(--pink)
+	blockquote
+		&:before
+			background-image: url("data:image/svg+xml,%3Csvg width='77' height='55' viewBox='0 0 77 55' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.80076 54.813H22.1293L33.015 33.0417V0.384766H0.35791V33.0417H16.6864L5.80076 54.813ZM49.3435 54.813H65.6721L76.5577 33.0417V0.384766H43.9007V33.0417H60.2292L49.3435 54.813Z' fill='%23FFA5BF'/%3E%3C/svg%3E%0A");
+
+.acfcolumns
+	padding 6vw 0
+	img
+		clip-path: polygon(8% 0, 100% 0, 87% 100%, 0 79%);
+	.contained
+		@media(min-width:$tablet)
+			flex_box()
+			flex_wrap(nowrap)
+			flex_direction(row)
+			justify_content(center)
+
+.acfcolumns__text,
+.acfcolumns__media
+	@media(min-width:$tablet)
+		width 50%
+
+
+.acfcolumns__text
+	@media(min-width:$tablet)
+		padding 0 5vw
+
+.contained
+	.acfcolumns
+		margin-left calc(-50vw + 50%)
+		margin-right calc(-50vw + 50%)
+		max-width 100vw
+		width 100vw
+
+
+.acfcolumns--flip
+	.acfcolumns__media
+		order 1
+	.acfcolumns__text
+		order 2
+	img
+		clip-path: polygon(0 0, 93% 0, 100% 79%, 11% 100%);

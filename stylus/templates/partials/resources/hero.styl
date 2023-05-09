@@ -1,0 +1,200 @@
+/*
+ * Hero
+ */
+
+.hero--resources
+	picture
+		transform(translateY(100%))
+		transition(transform 0.3s 0.6s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+	.column-media::before
+		transform-origin top right
+		transform(scale(0,0))
+		transition(transform 0.3s cubic-bezier(0.7, 0, 0.4, 1) )
+	.annotation-wrapper
+		opacity(0)
+		transform( rotate(360deg), translateX(150%), scale(0) )
+		transition(opacity 0.3s 1s ease, transform 0.3s 1s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+body.loaded
+	.hero--resources
+		picture
+			transform(translateY(0))
+			transition(transform 0.3s 0.6s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+		.column-media::before
+			transform(scale(1,1))
+			transition(transform 0.5s cubic-bezier(0.7, -0.4, 0.4, 1) )
+		.annotation-wrapper
+			opacity(1)
+			transform( rotate(200deg), translateX(0), scale(1) )
+			transition(opacity 0.3s 1s ease, transform 0.3s 1s cubic-bezier(0.7, -0.4, 0.4, 1.4) )
+
+.hero__overflow-mask
+	overflow hidden
+	margin 12vw 0
+	@media(min-width:$tablet)
+		margin 0
+		padding 23vw 0 0 0
+		margin-bottom 10vw
+	@media(min-width:$laptop)
+		min-height 100%
+	@media(min-width:$desktop)
+		padding 17vw 0 0 0
+		margin-bottom 50px
+	@media(min-width:$large-desktop)
+		padding 14vw 0 0 0
+
+
+.hero.hero--resources
+	color var(--darkgreen)
+	background var(--pink)
+	padding-top 102px
+	padding-bottom 0
+	overflow hidden
+	flex_box()
+	flex_direction(column)
+	justify_content(flex-start)
+	.contained
+		.columns
+			.column
+				flex-basis auto
+			.column-text
+				position relative
+				margin-bottom 60px
+				z-index 4
+				.call-to-action
+					margin-top 30px
+					p
+						margin-bottom 0
+						&:nth-child(n+2)
+							margin-top 30px
+			.column-media
+				position relative
+				flex_box()
+				max-width none
+				width "calc(100% + %s)" % $paddingX
+				height 63vw
+				@media(max-width:767px)
+					//margin-top 20vw
+				&::after,
+				&::before
+					content ""
+					display block
+					position absolute
+					top 0
+					right 0
+					height 100%
+					width 100%
+				&::before
+					background var(--darkgreen)
+					clip-path polygon(0 0, 100% 0, 100% 80%, 75px 100%)
+					z-index 1
+				&::after
+					background var(--pink)
+					clip-path polygon(77px 100%, 100% 80%, 100% 100%)
+					z-index 3
+				.featured-image-wrapper
+					position relative
+					inline_flex()
+					justify_content(center)
+					align_items(flex-end)
+					margin 0 auto
+					width 100%
+					z-index 2
+					.featured_image
+						position relative
+						width 100%
+						max-width none
+				.annotation-wrapper
+					position absolute
+					bottom 115px
+					right -115px
+					width 100%
+					z-index 3
+					pointer-events none
+	@media (min-width: $tablet)
+		padding-top 0
+		// padding-bottom 12vw
+		.contained
+			.columns
+				flex_box()
+				flex_direction(row)
+				align_items(center)
+				flex_wrap(nowrap)
+				.column
+					width 50%
+				.column-text
+					margin-bottom 0
+					.call-to-action
+						margin-top 45px
+				.column-media
+					height 33vw
+					margin-left "calc((-100vw + %s) / 4)" % $tablet-content-width
+					margin-right "calc((-100vw + %s) / 2)" % $tablet-content-width
+					&::before
+						clip-path polygon(0 0, 100% 0, 100% 80%, 75px 100%)
+						z-index 0
+					&::after
+						content ""
+						display block
+						position absolute
+						bottom 0
+						right 0
+						width 100%
+						height 100%
+						background var(--pink)
+						clip-path polygon(75px 100%, 100% 80%, 100% 100%)
+						z-index 3
+					.featured-image-wrapper
+						height auto
+					.annotation-wrapper
+						bottom 35%
+						right -100px
+						width 110%
+	@media (min-width: $laptop)
+		.contained .columns .column
+			&.column-text
+				margin-bottom 50px
+				.call-to-action
+					margin-top 70px
+					p
+						font-size 1.5rem
+					a.link::after
+						bottom -10px
+			&.column-media
+				margin-left "calc((-100vw + %s) / 4)" % $desktop-content-width
+				margin-right "calc((-100vw + %s) / 2)" % $desktop-content-width
+				&::before
+					clip-path polygon(0 0, 100% 0, 100% 80%, 90px 100%)
+				&::after
+					bottom -1px
+	@media (min-width: $desktop)
+		min-height 580px
+		min-height 80vh
+		// max-height 100vh
+		.contained
+			height 100%
+			width calc(100% - 240px )
+			.columns
+				height 100%
+				.column
+					&.column-text
+						.call-to-action
+							margin-top 100px
+					&.column-media
+						.featured-image-wrapper
+							.annotation-wrapper
+								bottom 150px
+								right -150px
+								width 700px
+	@media (min-width: $large-desktop)
+		.contained
+			width calc(100% - 240px )
+			max-width none
+			.columns
+				.column
+					&.column-media
+						.featured-image-wrapper
+							.annotation-wrapper
+								bottom 150px
+								right -150px
+								width 850px
+

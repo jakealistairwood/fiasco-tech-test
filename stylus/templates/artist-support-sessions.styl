@@ -1,0 +1,100 @@
+/*
+* Artist Support Sessions
+*
+*/
+		
+.artist-support-sessions
+	position fixed
+	top 0
+	left 0
+	bottom 0
+	height 100vh
+	width 100%
+	z-index 101
+	pointer-events none
+	visibility hidden
+	overflow hidden
+	transition(all 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+	&.open
+		pointer-events auto
+		visibility visible
+		transition(all 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+		.artist-support-sessions__wrapper .overlay
+			opacity(1)
+			transition(opacity 0.3s)
+		.artist-support-sessions__wrapper .content-wrapper
+			opacity(1)
+			transform(translateY(0px))
+			transition(opacity 0.3s, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+	.artist-support-sessions__wrapper
+		position relative
+		width 100%
+		height 100vh
+		overflow auto
+		background var(--pink)
+		z-index 101
+		.overlay
+			position absolute
+			top 0
+			left 0
+			height 100%
+			width 100%
+			background rgba(0,0,0,0.85)
+			z-index 102
+			opacity(0)
+			transition(opacity 0.3s)
+		.content-wrapper
+			position relative
+			z-index 103
+			padding 50px 25px
+			background var(--pink)
+			opacity(0)
+			transform(translateY(50px))
+			transition(opacity 0.3s, transform 0.3s cubic-bezier(0.7, -0.4, 0.4, 1.4))
+			.close-btn
+				position absolute
+				top 25px
+				right 25px
+			p
+				max-width 570px
+				margin-bottom 2rem
+	@media (min-width: 646px)
+		.artist-support-sessions__wrapper
+			flex_box()
+			justify_content(center)
+	@media (min-width: $tablet)
+		.artist-support-sessions__wrapper
+			background transparent
+			align_items(center)
+			.content-wrapper
+				width 680px
+				padding 45px 0 75px 100px
+				background var(--pink)
+				clip-path polygon(0px 0, 88% 0, 100% 70%, 10% 100%, 0 0)
+				.close-btn
+					right 99px
+				p
+					max-width 400px
+				
+	@media (min-width: $desktop)
+		.artist-support-sessions__wrapper
+			.content-wrapper
+				width 1024px
+				padding 60px 0 75px 150px
+				.close-btn
+					right 140px
+				p
+					max-width 580px
+	@media (min-width: $large-desktop)
+		.artist-support-sessions__wrapper
+			.content-wrapper
+				width 1188px
+				padding 60px 0 125px 150px
+				.close-btn
+					right 157px
+				h3
+					font-size 76px
+					line-height 76px
+				p
+					font-size 25px
+					line-height 25px

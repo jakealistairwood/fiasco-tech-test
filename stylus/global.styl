@@ -1,0 +1,94 @@
+//========================================================
+// GLOBAL STYLES
+//========================================================
+
+:root
+	font-size 16px
+
+body
+	min-height 100vh
+	background-color var(--white)
+
+// ADD THIS CLASS TO ANY OBJECT THAT NEEDS TO HAVE A MAX WIDTH
+.contained
+	width 100%
+	position relative
+	max-width $content-width
+	margin-left auto
+	margin-right auto
+	@media( min-width: $tablet )
+		width $tablet-content-width
+	@media( min-width: $laptop )
+		width $desktop-content-width
+	@media( min-width: $desktop )
+		width calc(100% - 400px)
+	@media( min-width: $large-desktop )
+		max-width $large-desktop-content-width
+
+
+// ADD THIS CLASS TO ANY OBJECT THAT NEEDS TO HAVE A MAX WIDTH
+.contain
+	max-width var(--content-width)
+	margin-left auto
+	margin-right auto
+
+.full
+	width 100%
+	padding-left var(--hpad)
+	padding-right var(--hpad)
+
+
+.columns
+	flex_box()
+	flex_direction(column)
+	flex_wrap()
+	margin 0 auto
+	&:last-child
+		margin-bottom 0
+	.column
+		max-width 100%
+		flex_basis(0)
+		flex_grow(1)
+		&:first-child
+			margin-bottom $paddingX
+	@media (min-width: $laptop)
+		flex_direction(row)
+		.column
+			width 50%
+			&:first-child
+				margin-bottom 0
+
+.screen-reader-text
+	display none !important
+
+
+.cursor
+	flex_box()
+	flex_direction(column)
+	align_items(flex-start)
+	content 'Caption'
+	color var(--darkgreen)
+	z-index 99
+	position absolute
+	top 0
+	left 0
+	height 2rem
+	width auto
+	opacity(0)
+	pointer-events none
+	transition(opacity 0.3s 0.2s ease)
+	margin-left 10px
+	margin-top 10px
+	text-transform uppercase
+	font-family var(--headingFont)
+	font-weight 500
+	font-size 0.7rem
+	span
+		display block
+		padding 0.1em 0.5em
+		background #fff
+		width auto
+
+.cursor--show
+	opacity(1)
+	transition(opacity 0.3s ease)
