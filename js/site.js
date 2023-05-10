@@ -586,9 +586,6 @@ $(document).ready(function(){
 		// Display an initial member on page load
 		let initialMember = [...memberProfiles].filter(profile => profile.dataset.member == initialActiveMemberID)[0];
 		initialMember.classList.remove('hidden');
-		
-		// let profilesToHide = [...memberProfiles].splice(1);
-		// profilesToHide.forEach(profile => profile.classList.add("hidden"));
 
 		const displayTeamMember = (e, memberRef) => {
 			e.stopPropagation();
@@ -598,11 +595,12 @@ $(document).ready(function(){
 			e.target.parentElement.classList.add("meet-the-team__member--active");
 
 			let memberToDisplay = [...memberProfiles].filter(profile => profile.dataset.member == memberRef)[0];
-			console.log(memberToDisplay);
 
 			memberProfiles.forEach(profile => {
 				if(!profile.classList.contains("hidden")) profile.classList.add("hidden");
+				if(profile.classList.contains("animate")) profile.classList.remove("animate");
 				memberToDisplay.classList.remove("hidden");
+				memberToDisplay.classList.add("animate");
 			})
 		}
 		

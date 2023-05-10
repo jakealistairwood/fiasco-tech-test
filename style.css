@@ -7915,7 +7915,15 @@ button.swiper-pagination-bullet {
   display: flex;
   flex-direction: column;
   row-gap: 3.75rem;
-  flex-grow: 1;
+  width: fit-content;
+  margin-right: auto;
+}
+.meet-the-team__member {
+  position: relative;
+}
+.meet-the-team__member::after {
+  position: absolute;
+  content: "";
 }
 .meet-the-team__member button {
   text-transform: uppercase;
@@ -7928,6 +7936,16 @@ button.swiper-pagination-bullet {
   max-width: 640px;
   top: -10rem;
   position: relative;
+}
+.meet-the-team .member-profile:nth-child(even) .member-profile__thumbnail img {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
 }
 .meet-the-team .member-profile__thumbnail {
   position: relative;
@@ -7952,6 +7970,8 @@ button.swiper-pagination-bullet {
   max-height: 432px;
   height: 100%;
   margin-inline: auto;
+  visibility: visible;
+  opacity: 1;
 }
 .meet-the-team .member-profile__thumbnail .sketch-element {
   background-image: url("img/annotations/star1.png");
@@ -7967,15 +7987,232 @@ button.swiper-pagination-bullet {
   align-items: center;
   column-gap: 1rem;
   margin-top: 3.25rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
 }
 .meet-the-team .member-profile__overview header h4 {
-  text-transform: uppercase;
   margin-bottom: 0;
 }
+.meet-the-team .member-profile__overview header span {
+  font-size: 1.5rem;
+}
+.meet-the-team .member-profile__overview .social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.875rem;
+  margin-top: 3.75rem;
+  position: relative;
+}
+.meet-the-team .member-profile__overview .social-links .decorative-arrow {
+  position: absolute;
+  top: 50%;
+  left: -60%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 50%;
+}
 .meet-the-team .member-profile.hidden {
-  visibility: hidden;
-  opacity: 0;
   height: 0;
+}
+.meet-the-team .member-profile.hidden:nth-child(even) .member-profile__thumbnail img {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+.meet-the-team .member-profile.hidden .member-profile__thumbnail img {
+  height: 0;
+}
+.meet-the-team .member-profile.hidden .member-profile__overview {
+  visibility: hidden;
+}
+.meet-the-team .member-profile.hidden .member-profile__overview header {
+  -webkit-animation: fadeOutElement 0.2s ease;
+  -moz-animation: fadeOutElement 0.2s ease;
+  -o-animation: fadeOutElement 0.2s ease;
+  -ms-animation: fadeOutElement 0.2s ease;
+  animation: fadeOutElement 0.2s ease;
+}
+.meet-the-team .member-profile.hidden .member-profile__overview .social-links {
+  display: none;
+}
+.meet-the-team .member-profile.animate .member-profile__thumbnail img {
+  -webkit-animation: moveImageUp 0.2s ease;
+  -moz-animation: moveImageUp 0.2s ease;
+  -o-animation: moveImageUp 0.2s ease;
+  -ms-animation: moveImageUp 0.2s ease;
+  animation: moveImageUp 0.2s ease;
+}
+.meet-the-team .member-profile.animate .member-profile__overview header,
+.meet-the-team .member-profile.animate .member-profile__overview p {
+  -webkit-animation: fadeInElement 0.3s ease;
+  -moz-animation: fadeInElement 0.3s ease;
+  -o-animation: fadeInElement 0.3s ease;
+  -ms-animation: fadeInElement 0.3s ease;
+  animation: fadeInElement 0.3s ease;
+}
+@-moz-keyframes moveImageUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  80% {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -o-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes moveImageUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  80% {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -o-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+@-o-keyframes moveImageUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  80% {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -o-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+@keyframes moveImageUp {
+  0% {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  80% {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -o-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+@-moz-keyframes fadeInElement {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInElement {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeInElement {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInElement {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeOutElement {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeOutElement {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes fadeOutElement {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOutElement {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .back-to-top .contained::after {
   height: 0px;

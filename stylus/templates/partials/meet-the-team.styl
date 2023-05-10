@@ -26,10 +26,19 @@
         display flex
         flex-direction column
         row-gap 3.75rem
-        flex-grow 1
+        // flex-grow 1
+        width: fit-content
+        margin-right: auto
     &__member
+        position relative
+
+        &::after 
+            position absolute
+            content ""
+        // background-size cover
         button 
             text-transform uppercase
+            
         // &:hover
         //     position absolute
         //     content ""
@@ -46,6 +55,16 @@
         max-width 640px
         top -10rem
         position relative
+        
+        &:nth-child(even)
+            // Would use reversed classname which is controlled via ACF true/false but option wasn't appearing in CMS
+            // So used this instead but same logic applies
+            .member-profile__thumbnail
+                img
+                    transform scaleX(-1)
+                    -moz-transform scaleX(-1)
+                    -o-transform scaleX(-1)
+                    -webkit-transform scaleX(-1)
 
         &__thumbnail
             position relative 
@@ -73,6 +92,8 @@
                 max-height 432px
                 height 100%
                 margin-inline auto
+                visibility visible
+                opacity 1
             
             .sketch-element 
                 background-image url(img/annotations/star1.png)
@@ -89,12 +110,89 @@
                 align-items center
                 column-gap 1rem
                 margin-top 3.25rem
+                margin-bottom 1.25rem
+                text-transform: uppercase
 
                 h4 
-                    text-transform uppercase
                     margin-bottom 0
 
+                span 
+                    font-size: 1.5rem
+            
+            .social-links 
+                display flex
+                align-items center
+                gap 1.875rem
+                margin-top 3.75rem
+                position relative
+            
+                .decorative-arrow 
+                    position absolute
+                    top 50%
+                    left -60%
+                    transform translateY(-50%)
+                    width 50%
+        
+
     .member-profile.hidden 
-        visibility hidden
-        opacity 0
         height 0
+        
+        &:nth-child(even) 
+            .member-profile__thumbnail
+                img 
+                    transform scaleX(-1)
+                    -moz-transform scaleX(-1)
+                    -o-transform scaleX(-1)
+                    -webkit-transform scaleX(-1)
+
+        .member-profile__thumbnail
+            img 
+                // visibility hidden
+                // opacity 0
+                height 0
+                
+            
+        .member-profile__overview 
+            visibility hidden
+
+            header 
+                animation: fadeOutElement 0.2s ease
+            
+            .social-links
+                display none
+    
+    .member-profile.animate
+        .member-profile__thumbnail
+            img 
+                animation: moveImageUp 0.2s ease
+
+        .member-profile__overview
+            header,
+            p 
+                animation: fadeInElement 0.3s ease
+
+
+@keyframes moveImageUp 
+    0%
+        transform translateY(100%)
+    
+    80% 
+        transform translateY(-5%)
+    
+    100%
+        transform translateY(0%)
+
+@keyframes fadeInElement
+    0%
+        opacity 0
+    
+    100% 
+        opacity 1
+
+@keyframes fadeOutElement
+    0%
+        opacity 1
+    
+    100% 
+        opacity 0
+
