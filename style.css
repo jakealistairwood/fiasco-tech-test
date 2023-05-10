@@ -7920,13 +7920,22 @@ button.swiper-pagination-bullet {
 }
 .meet-the-team__member {
   position: relative;
+  cursor: pointer;
 }
 .meet-the-team__member::after {
   position: absolute;
-  content: "";
+  top: -50px;
+  left: -65px;
+  content: url("img/annotations/circle.svg");
+  width: 100%;
+  display: none;
 }
 .meet-the-team__member button {
   text-transform: uppercase;
+  cursor: pointer;
+}
+.meet-the-team__member:hover::after {
+  display: block;
 }
 .meet-the-team__member--all {
   color: var(--white);
@@ -7938,14 +7947,11 @@ button.swiper-pagination-bullet {
   position: relative;
 }
 .meet-the-team .member-profile:nth-child(even) .member-profile__thumbnail img {
-  -webkit-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .meet-the-team .member-profile__thumbnail {
   position: relative;
@@ -8018,14 +8024,11 @@ button.swiper-pagination-bullet {
   height: 0;
 }
 .meet-the-team .member-profile.hidden:nth-child(even) .member-profile__thumbnail img {
-  -webkit-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 .meet-the-team .member-profile.hidden .member-profile__thumbnail img {
   height: 0;
@@ -8042,6 +8045,19 @@ button.swiper-pagination-bullet {
 }
 .meet-the-team .member-profile.hidden .member-profile__overview .social-links {
   display: none;
+}
+.meet-the-team .member-profile.animate:nth-child(even) .member-profile__thumbnail .sketch-element {
+  top: -2rem;
+  left: 0;
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -o-transition: all, 1s, linear;
+  -moz-transition: all, 1s, linear;
+  -webkit-transition: all, 1s, linear;
+  transition: all, 1s, linear;
 }
 .meet-the-team .member-profile.animate .member-profile__thumbnail img {
   -webkit-animation: moveImageUp 0.2s ease;
@@ -8212,6 +8228,70 @@ button.swiper-pagination-bullet {
   }
   100% {
     opacity: 0;
+  }
+}
+@-moz-keyframes flipElementY {
+  0% {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+}
+@-webkit-keyframes flipElementY {
+  0% {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+}
+@-o-keyframes flipElementY {
+  0% {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+}
+@keyframes flipElementY {
+  0% {
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 }
 .back-to-top .contained::after {
