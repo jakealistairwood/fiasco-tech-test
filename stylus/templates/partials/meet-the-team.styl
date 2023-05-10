@@ -3,8 +3,8 @@
 */
 
 .meet-the-team 
-    padding-block 13.5rem;
-    h2 
+    padding-block 13.5rem
+    h2.section-header 
         position relative
         width fit-content
         margin-bottom 4rem
@@ -15,14 +15,14 @@
             background-image url(img/annotations/underline.png)
             background-repeat no-repeat
             width 100%
-            bottom -1rem
+            bottom -1.5rem
             left 0
-            height 10px
+            height 1rem
 
     &__wrapper 
         display flex
         
-    &__members
+    &__member-list
         display flex
         flex-direction column
         row-gap 3.75rem
@@ -30,56 +30,71 @@
     &__member
         button 
             text-transform uppercase
-        &--active 
-            position relative
-            &::after
-                position absolute
-                content ""
-                top 0
-                left 0
-                background-image url(img/annotations/circle-4.png)
-                width 100%
-                background-repeat no-repeat
+        // &:hover
+        //     position absolute
+        //     content ""
+        //     top 0
+        //     left 0
+        //     background-image url(img/annotations/circle-4.png)
+        //     width 100%
+        //     background-repeat no-repeat
         &--all 
             color var(--white)
 
-    &__member-profile 
+    .member-profile
         width 100%
         max-width 640px
         top -10rem
         position relative
 
+        &__thumbnail
+            position relative 
+            overflow: hidden 
+
+            .polygon-element
+                clip-path polygon(0 30%, 89% 0, 100% 100%, 9% 100%)
+                background-color var(--white)
+                opacity 0.5
+                // z-index -1
+                position absolute
+                bottom 0
+                left 0
+                right 0
+                width 100%
+                height 270px
+                z-index 1
+
+            img 
+                position relative
+                // max-width 417px 
+                z-index 2
+                // width 100%
+                width auto
+                max-height 432px
+                height 100%
+                margin-inline auto
+            
+            .sketch-element 
+                background-image url(img/annotations/star1.png)
+                background-repeat no-repeat
+                height 250px
+                width 250px
+                position absolute
+                right -2rem
+                top 0
         
-    &__profile-img 
-        position relative
+        &__overview
+            header
+                display flex
+                align-items center
+                column-gap 1rem
+                margin-top 3.25rem
 
-        .decor-element
-            clip-path polygon(0 30%, 89% 0, 100% 100%, 9% 100%)
-            background-color var(--white)
-            opacity 0.5
-            // z-index -1
-            position absolute
-            bottom 0
-            left 0
-            right 0
-            width 100%
-            height 270px
-            z-index 1
+                h4 
+                    text-transform uppercase
+                    margin-bottom 0
 
-        img 
-            position relative
-            max-width 417px 
-            z-index 2
-            width 100%
-            margin-inline auto
-
-    &__profile-overview
-        header
-            display flex
-            align-items center
-            column-gap 1rem
-            margin-top 3.25rem
-
-            h4 
-                text-transform uppercase
-                margin-bottom 0
+    .member-profile.hidden 
+        visibility hidden
+        opacity 0
+        height 0

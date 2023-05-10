@@ -568,6 +568,51 @@ $(document).ready(function(){
 		return false;
 	}
 
+	/* =======================
+	*
+	*	MEET THE TEAM BLOCK
+	*
+	======================= */ 
+
+	if(document.querySelector('.meet-the-team__member-list')) {
+		// console.log("This page contains the meet the team block");
+
+		let memberLinks = document.querySelectorAll('[data-memberID]');
+		let memberProfiles = document.querySelectorAll('.member-profile');
+
+		let initialActiveLink = [...memberLinks].filter(link => link.classList.contains("meet-the-team__member--active"))[0];
+		const initialActiveMemberID = initialActiveLink.dataset.memberid;
+
+		// Display an initial member on page load
+		let initialMember = [...memberProfiles].filter(profile => profile.dataset.member == initialActiveMemberID)[0];
+		initialMember.classList.remove('hidden');
+		
+		// let profilesToHide = [...memberProfiles].splice(1);
+		// profilesToHide.forEach(profile => profile.classList.add("hidden"));
+
+		const displayTeamMember = (e, memberRef) => {
+			e.stopPropagation();
+			memberLinks.forEach(link => {
+				if(link.classList.contains("meet-the-team__member--active")) link.classList.remove("meet-the-team__member--active");
+			})
+			e.target.parentElement.classList.add("meet-the-team__member--active");
+
+			let memberToDisplay = [...memberProfiles].filter(profile => profile.dataset.member == memberRef)[0];
+			console.log(memberToDisplay);
+
+			memberProfiles.forEach(profile => {
+				if(!profile.classList.contains("hidden")) profile.classList.add("hidden");
+				memberToDisplay.classList.remove("hidden");
+			})
+		}
+		
+		memberLinks.forEach(link => {
+			let linkRef = link.dataset.memberid;
+			link.addEventListener('click', (e) => {
+				displayTeamMember(e, linkRef)
+			});
+		})
+	};
 	
 
 

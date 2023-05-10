@@ -6,9 +6,8 @@
 get_header(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <div class="contained">
-            <?php get_template_part('parts/meet-the-team') ?>
-        </div>
+        
+    <?php get_template_part('parts/meet-the-team') ?>
 
     <?php endwhile;
 else : ?>
