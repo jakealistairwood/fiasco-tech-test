@@ -7,7 +7,7 @@
     h2.section-header 
         position relative
         width fit-content
-        margin-bottom 4rem
+        margin-bottom 7.125rem
 
         &:after 
             content ''
@@ -21,6 +21,7 @@
 
     &__wrapper 
         display flex
+        align-items center
         
     &__member-list
         display flex
@@ -63,7 +64,6 @@
     .member-profile
         width 100%
         max-width 640px
-        top -10rem
         position relative
         
         &:nth-child(even)
@@ -183,6 +183,53 @@
             p 
                 animation: fadeInElement 0.3s ease
 
+
+/* ================
+*
+* MEDIA QUERIES
+*
+================ */
+
+@media (max-width: $tablet) 
+    .meet-the-team 
+        padding-block 8.25rem
+
+        &__wrapper 
+            flex-direction column
+
+        &__member-list
+            row-gap 1rem
+        
+        &__member 
+            &--active 
+                font-weight 700
+            
+            &:hover
+                &::after 
+                    display none
+
+    .member-profile 
+        max-width: 480px
+
+        &__thumbnail
+            img 
+                max-height: 350px !important
+
+        &__overview 
+            header 
+                flex-direction column
+                row-gap 1rem
+                align-items flex-start !important
+
+
+
+
+
+/* ================
+*
+* KEYFRAMES
+*
+================ */
 
 @keyframes moveImageUp 
     0%

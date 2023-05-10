@@ -7896,7 +7896,7 @@ button.swiper-pagination-bullet {
 .meet-the-team h2.section-header {
   position: relative;
   width: fit-content;
-  margin-bottom: 4rem;
+  margin-bottom: 7.125rem;
 }
 .meet-the-team h2.section-header:after {
   content: '';
@@ -7910,6 +7910,7 @@ button.swiper-pagination-bullet {
 }
 .meet-the-team__wrapper {
   display: flex;
+  align-items: center;
 }
 .meet-the-team__member-list {
   display: flex;
@@ -7943,7 +7944,6 @@ button.swiper-pagination-bullet {
 .meet-the-team .member-profile {
   width: 100%;
   max-width: 640px;
-  top: -10rem;
   position: relative;
 }
 .meet-the-team .member-profile:nth-child(even) .member-profile__thumbnail img {
@@ -8073,6 +8073,34 @@ button.swiper-pagination-bullet {
   -o-animation: fadeInElement 0.3s ease;
   -ms-animation: fadeInElement 0.3s ease;
   animation: fadeInElement 0.3s ease;
+}
+@media (max-width: 768px) {
+  .meet-the-team {
+    padding-block: 8.25rem;
+  }
+  .meet-the-team__wrapper {
+    flex-direction: column;
+  }
+  .meet-the-team__member-list {
+    row-gap: 1rem;
+  }
+  .meet-the-team__member--active {
+    font-weight: 700;
+  }
+  .meet-the-team__member:hover::after {
+    display: none;
+  }
+  .member-profile {
+    max-width: 480px;
+  }
+  .member-profile__thumbnail img {
+    max-height: 350px !important;
+  }
+  .member-profile__overview header {
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: flex-start !important;
+  }
 }
 @-moz-keyframes moveImageUp {
   0% {

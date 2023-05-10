@@ -14,9 +14,9 @@ $index = 0;
 <?php if ($team_members->have_posts()) : ?>
     <section class="meet-the-team">
         <div class="contained">
-            <h2 class="section-header">Meet the Team</h2>
             <div class="meet-the-team__wrapper">
                 <ul class="meet-the-team__member-list">
+                    <h2 class="section-header">Meet the Team</h2>
                     <?php while ($team_members->have_posts()) : $team_members->the_post(); ?>
                         <?php $index++; ?>
 
