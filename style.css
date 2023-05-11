@@ -7911,6 +7911,7 @@ button.swiper-pagination-bullet {
 .meet-the-team__wrapper {
   display: flex;
   align-items: center;
+  gap: 5rem;
 }
 .meet-the-team__member-list {
   display: flex;
@@ -7934,6 +7935,7 @@ button.swiper-pagination-bullet {
 .meet-the-team__member button {
   text-transform: uppercase;
   cursor: pointer;
+  text-align: left;
 }
 .meet-the-team__member:hover::after {
   display: block;
@@ -7941,9 +7943,12 @@ button.swiper-pagination-bullet {
 .meet-the-team__member--all {
   color: var(--white);
 }
+.meet-the-team__member-profiles {
+  max-width: 640px;
+  width: 100%;
+}
 .meet-the-team .member-profile {
   width: 100%;
-  max-width: 640px;
   position: relative;
 }
 .meet-the-team .member-profile:nth-child(even) .member-profile__thumbnail img {
@@ -7982,11 +7987,13 @@ button.swiper-pagination-bullet {
 .meet-the-team .member-profile__thumbnail .sketch-element {
   background-image: url("img/annotations/star1.png");
   background-repeat: no-repeat;
+  background-position: center center;
   height: 250px;
   width: 250px;
   position: absolute;
   right: -2rem;
   top: 0;
+  z-index: 1;
 }
 .meet-the-team .member-profile__overview header {
   display: flex;
@@ -8004,6 +8011,7 @@ button.swiper-pagination-bullet {
 }
 .meet-the-team .member-profile__overview .social-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1.875rem;
   margin-top: 3.75rem;
@@ -8012,13 +8020,13 @@ button.swiper-pagination-bullet {
 .meet-the-team .member-profile__overview .social-links .decorative-arrow {
   position: absolute;
   top: 50%;
-  left: -60%;
+  left: -50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 50%;
+  width: 40%;
 }
 .meet-the-team .member-profile.hidden {
   height: 0;
@@ -8074,12 +8082,43 @@ button.swiper-pagination-bullet {
   -ms-animation: fadeInElement 0.3s ease;
   animation: fadeInElement 0.3s ease;
 }
+@media (max-width: 1600px) {
+  .meet-the-team__member-profiles {
+    max-width: 500px;
+  }
+}
+@media (max-width: 1440px) {
+  .decorative-arrow {
+    width: 150px !important;
+    left: -40% !important;
+  }
+}
+@media (max-width: 1240px) {
+  .meet-the-team h2.section-header {
+    margin-bottom: 4rem;
+  }
+  .decorative-arrow {
+    display: none;
+  }
+}
+@media (max-width: 1080px) {
+  .sketch-element {
+    -webkit-background-size: 50%;
+    background-size: 50%;
+    top: -2rem !important;
+  }
+}
 @media (max-width: 768px) {
   .meet-the-team {
-    padding-block: 8.25rem;
+    padding-top: 10rem;
+    padding-bottom: 8.25rem;
   }
   .meet-the-team__wrapper {
     flex-direction: column;
+    gap: 0;
+  }
+  .meet-the-team__wrapper h2.section-header {
+    margin-bottom: 4rem;
   }
   .meet-the-team__member-list {
     row-gap: 1rem;
@@ -8090,7 +8129,7 @@ button.swiper-pagination-bullet {
   .meet-the-team__member:hover::after {
     display: none;
   }
-  .member-profile {
+  .meet-the-team__member-profiles {
     max-width: 480px;
   }
   .member-profile__thumbnail img {
@@ -8100,6 +8139,16 @@ button.swiper-pagination-bullet {
     flex-direction: column;
     row-gap: 1rem;
     align-items: flex-start !important;
+  }
+}
+@media (max-width: 500px) {
+  .member-profile:nth-child(even) .sketch-element {
+    left: -2rem !important;
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .polygon-element {
+    bottom: -4rem !important;
   }
 }
 @-moz-keyframes moveImageUp {

@@ -22,14 +22,14 @@
     &__wrapper 
         display flex
         align-items center
+        gap 5rem
         
     &__member-list
         display flex
         flex-direction column
         row-gap 3.75rem
-        // flex-grow 1
-        width: fit-content
-        margin-right: auto
+        width fit-content
+        margin-right auto
     &__member
         position relative
         cursor pointer
@@ -41,41 +41,37 @@
             content url(img/annotations/circle.svg)
             width 100%
             display none
-        // background-size cover
+
         button 
             text-transform uppercase
             cursor pointer
+            text-align left
     
         &:hover 
             &::after
                 display: block
-            
-        // &:hover
-        //     position absolute
-        //     content ""
-        //     top 0
-        //     left 0
-        //     background-image url(img/annotations/circle-4.png)
-        //     width 100%
-        //     background-repeat no-repeat
+
         &--all 
             color var(--white)
 
+    &__member-profiles
+        max-width: 640px
+        width 100%
+
     .member-profile
         width 100%
-        max-width 640px
         position relative
         
         &:nth-child(even)
             // Would use reversed classname which is controlled via ACF true/false but option wasn't appearing in CMS
-            // So used this instead but same logic applies
+            // So used this instead but same logic applies (making every other member profile reversed by using nth-child)
             .member-profile__thumbnail
                 img
                     transform rotateY(180deg)
 
         &__thumbnail
             position relative 
-            overflow: hidden 
+            overflow hidden 
 
             .polygon-element
                 clip-path polygon(0 30%, 89% 0, 100% 100%, 9% 100%)
@@ -92,9 +88,7 @@
 
             img 
                 position relative
-                // max-width 417px 
                 z-index 2
-                // width 100%
                 width auto
                 max-height 432px
                 height 100%
@@ -105,11 +99,13 @@
             .sketch-element 
                 background-image url(img/annotations/star1.png)
                 background-repeat no-repeat
+                background-position: center center
                 height 250px
                 width 250px
                 position absolute
                 right -2rem
                 top 0
+                z-index 1
         
         &__overview
             header
@@ -128,6 +124,7 @@
             
             .social-links 
                 display flex
+                flex-wrap wrap
                 align-items center
                 gap 1.875rem
                 margin-top 3.75rem
@@ -136,9 +133,9 @@
                 .decorative-arrow 
                     position absolute
                     top 50%
-                    left -60%
+                    left -50%
                     transform translateY(-50%)
-                    width 50%
+                    width 40%
         
 
     .member-profile.hidden 
@@ -151,8 +148,6 @@
 
         .member-profile__thumbnail
             img 
-                // visibility hidden
-                // opacity 0
                 height 0
                 
             
@@ -190,12 +185,40 @@
 *
 ================ */
 
+@media (max-width: 1600px) 
+    .meet-the-team
+        &__member-profiles
+            max-width: 500px
+
+@media (max-width: 1440px)
+    .decorative-arrow
+        width 150px !important
+        left -40% !important
+                
+@media (max-width: $desktop)
+    .meet-the-team
+        h2.section-header 
+            margin-bottom 4rem
+
+    .decorative-arrow
+        display none
+
+@media (max-width: 1080px)
+    .sketch-element
+        background-size 50%
+        top -2rem !important
+
 @media (max-width: $tablet) 
     .meet-the-team 
-        padding-block 8.25rem
+        padding-top 10rem
+        padding-bottom 8.25rem
 
         &__wrapper 
             flex-direction column
+            gap 0
+
+            h2.section-header 
+                margin-bottom 4rem
 
         &__member-list
             row-gap 1rem
@@ -208,8 +231,10 @@
                 &::after 
                     display none
 
+        &__member-profiles
+            max-width: 480px
+
     .member-profile 
-        max-width: 480px
 
         &__thumbnail
             img 
@@ -221,7 +246,15 @@
                 row-gap 1rem
                 align-items flex-start !important
 
-
+@media (max-width: 500px) 
+    .member-profile
+        &:nth-child(even)
+            .sketch-element
+                left -2rem !important
+                width 200px !important
+                height 200px !important
+    .polygon-element
+        bottom: -4rem !important
 
 
 

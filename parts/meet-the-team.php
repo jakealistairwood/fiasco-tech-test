@@ -57,12 +57,12 @@ $index = 0;
                                             </li>
                                             <?php if (get_sub_field('linkedin')) : ?>
                                                 <li>
-                                                    <a class="cta darkgreen" href="<?php echo get_sub_field('linkedin') ?>">Linkedin</a>
+                                                    <a class="cta darkgreen" href="<?php echo get_sub_field('linkedin') ?>" target="_blank">Linkedin</a>
                                                 </li>
                                             <?php endif ?>
                                             <?php if (get_sub_field('twitter')) : ?>
                                                 <li>
-                                                    <a class="cta darkgreen" href="<?php echo get_sub_field('twitter') ?>">Twitter</a>
+                                                    <a class="cta darkgreen" href="<?php echo get_sub_field('twitter') ?>" target="_blank">Twitter</a>
                                                 </li>
                                             <?php endif ?>
                                         <?php endwhile ?>
