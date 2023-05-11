@@ -7924,6 +7924,9 @@ button.swiper-pagination-bullet {
   position: relative;
   cursor: pointer;
 }
+.meet-the-team__member--active button {
+  font-weight: 700;
+}
 .meet-the-team__member::after {
   position: absolute;
   top: -50px;

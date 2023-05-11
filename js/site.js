@@ -592,7 +592,7 @@ $(document).ready(function(){
 			memberLinks.forEach(link => {
 				if(link.classList.contains("meet-the-team__member--active")) link.classList.remove("meet-the-team__member--active");
 			})
-			e.target.parentElement.classList.add("meet-the-team__member--active");
+			e.target.classList.add("meet-the-team__member--active");
 
 			let memberToDisplay = [...memberProfiles].filter(profile => profile.dataset.member == memberRef)[0];
 
